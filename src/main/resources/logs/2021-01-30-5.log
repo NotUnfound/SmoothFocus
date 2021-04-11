@@ -1,0 +1,143 @@
+[30Jan2021 18:33:22.139] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20200911.084530, --fml.mcVersion, 1.16.3, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 34.1.0, --version, MOD_DEV, --assetIndex, 1.16, --assetsDir, C:\Users\Waffles\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[30Jan2021 18:33:22.146] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 7.0.1+78+master.e9771d8 starting: java version 1.8.0_271 by Oracle Corporation
+[30Jan2021 18:33:23.157] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[30Jan2021 18:33:23.236] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.1 Source=file:/C:/Users/Waffles/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.1/3099ac85bce29d37a22d3561073d01eb99b0cf4b/mixin-0.8.1.jar Service=ModLauncher Env=CLIENT
+[30Jan2021 18:33:26.527] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Waffles\.gradle\caches\forge_gradle\assets, --assetIndex, 1.16, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[30Jan2021 18:33:39.001] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', name='PROD'
+[30Jan2021 18:33:39.007] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[30Jan2021 18:33:39.275] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
+[30Jan2021 18:33:40.724] [modloading-worker-1/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 34.1.0, for MC 1.16.3 with MCP 20200911.084530
+[30Jan2021 18:33:40.724] [modloading-worker-1/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v34.1.0 Initialized
+[30Jan2021 18:33:41.615] [Render thread/ERROR] [net.minecraft.util.Util/]: No data fixer registered for forgepracticestomp_ghost
+[30Jan2021 18:33:41.617] [Render thread/ERROR] [net.minecraft.util.Util/]: No data fixer registered for geoexampleentity
+[30Jan2021 18:33:41.617] [Render thread/ERROR] [net.minecraft.util.Util/]: No data fixer registered for bikeentity
+[30Jan2021 18:33:43.969] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[30Jan2021 18:33:44.149] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[30Jan2021 18:33:45.639] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[30Jan2021 18:33:46.700] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 34.1.0 Target: null
+[30Jan2021 18:33:46.700] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forgepractice] Starting version check at http://myurl.me/
+[30Jan2021 18:33:47.121] [Forge Version Check/WARN] [net.minecraftforge.fml.VersionChecker/]: Failed to process update information
+java.io.IOException: Server returned HTTP response code: 403 for URL: http://myurl.me/
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_271]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_271]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_271]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source) ~[?:1.8.0_271]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[?:1.8.0_271]
+	at net.minecraftforge.fml.VersionChecker$1.openUrlStream(VersionChecker.java:171) ~[?:?]
+	at net.minecraftforge.fml.VersionChecker$1.process(VersionChecker.java:187) ~[?:?]
+	at java.lang.Iterable.forEach(Unknown Source) [?:1.8.0_271]
+	at net.minecraftforge.fml.VersionChecker$1.run(VersionChecker.java:139) [?:?]
+Caused by: java.io.IOException: Server returned HTTP response code: 403 for URL: http://myurl.me/
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[?:1.8.0_271]
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source) ~[?:1.8.0_271]
+	at net.minecraftforge.fml.VersionChecker$1.openUrlStream(VersionChecker.java:155) ~[?:?]
+	... 3 more
+[30Jan2021 18:34:02.677] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.678] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.679] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:02.680] [modloading-worker-0/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[30Jan2021 18:34:05.680] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[30Jan2021 18:34:05.681] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[30Jan2021 18:34:06.227] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[30Jan2021 18:34:06.351] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[30Jan2021 18:34:06.357] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[30Jan2021 18:34:06.518] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[30Jan2021 18:34:06.522] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[30Jan2021 18:34:06.524] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[30Jan2021 18:34:06.527] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[30Jan2021 18:34:07.581] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[30Jan2021 18:34:07.585] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[30Jan2021 18:34:07.613] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[30Jan2021 18:34:09.466] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[30Jan2021 18:34:44.533] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[30Jan2021 18:34:44.534] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[30Jan2021 18:34:44.535] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[30Jan2021 18:34:44.537] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[30Jan2021 18:34:44.538] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[30Jan2021 18:34:44.542] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar, main, forge-1.16.4-geckolib-3.0.0_mapped_snapshot_20201028-1.16.3.jar
+[30Jan2021 18:34:46.843] [Render thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 7 recipes
+[30Jan2021 18:34:48.672] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 927 advancements
+[30Jan2021 18:34:49.495] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', name='PROD'
+[30Jan2021 18:34:49.537] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.16.3
+[30Jan2021 18:34:49.538] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Generating keypair
+[30Jan2021 18:34:49.657] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Configuration file .\saves\New World (21)\serverconfig\forge-server.toml is not correct. Correcting
+[30Jan2021 18:34:49.659] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server was corrected from null to SimpleCommentedConfig:{}
+[30Jan2021 18:34:49.659] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.removeErroringEntities was corrected from null to false
+[30Jan2021 18:34:49.659] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.removeErroringTileEntities was corrected from null to false
+[30Jan2021 18:34:49.659] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fullBoundingBoxLadders was corrected from null to false
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.zombieBaseSummonChance was corrected from null to 0.1
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.zombieBabyChance was corrected from null to 0.05
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.logCascadingWorldGeneration was corrected from null to true
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fixVanillaCascading was corrected from null to false
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.dimensionUnloadQueueDelay was corrected from null to 0
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.treatEmptyTagsAsAir was corrected from null to false
+[30Jan2021 18:34:49.660] [Server thread/WARN] [net.minecraftforge.common.ForgeConfigSpec/CORE]: Incorrect key server.fixAdvancementLoading was corrected from null to true
+[30Jan2021 18:34:50.402] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Unable to find spawn biome
+[30Jan2021 18:34:51.186] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[30Jan2021 18:34:51.325] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[30Jan2021 18:34:51.787] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[30Jan2021 18:34:52.235] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[30Jan2021 18:34:52.718] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 1%
+[30Jan2021 18:34:53.218] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
+[30Jan2021 18:34:53.757] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
+[30Jan2021 18:34:54.235] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
+[30Jan2021 18:34:55.001] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 4%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.298] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:34:59.299] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 22%
+[30Jan2021 18:35:02.503] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
+[30Jan2021 18:35:02.503] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
+[30Jan2021 18:35:02.503] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
+[30Jan2021 18:35:02.503] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
+[30Jan2021 18:35:02.503] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
+[30Jan2021 18:35:02.503] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 70%
+[30Jan2021 18:35:02.570] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 11365 ms
+[30Jan2021 18:35:02.630] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Changing view distance to 2, from 10
+[30Jan2021 18:35:04.253] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
+[30Jan2021 18:35:04.278] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.advancements.PlayerAdvancements@6d2f920b
+[30Jan2021 18:35:04.300] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:9b21537a] logged in with entity id 13 at (6.5, 64.0, -0.5)
+[30Jan2021 18:35:04.347] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[30Jan2021 18:35:04.601] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[30Jan2021 18:35:04.628] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[30Jan2021 18:35:04.739] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 0 advancements
+[30Jan2021 18:35:05.193] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[30Jan2021 18:35:05.199] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[30Jan2021 18:35:08.531] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new entity.forgepractice.stomp_ghost]
+[30Jan2021 18:35:08.546] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Summoned new entity.forgepractice.stomp_ghost
+[30Jan2021 18:35:17.276] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: The difficulty has been set to Hard]
+[30Jan2021 18:35:17.292] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] The difficulty has been set to Hard
+[30Jan2021 18:35:25.951] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[30Jan2021 18:35:25.966] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[30Jan2021 18:35:26.086] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[30Jan2021 18:35:26.089] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[30Jan2021 18:35:31.101] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[30Jan2021 18:35:31.110] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[30Jan2021 18:35:31.167] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[30Jan2021 18:35:31.168] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[30Jan2021 18:37:48.773] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new entity.forgepractice.stomp_ghost]
+[30Jan2021 18:37:48.789] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Summoned new entity.forgepractice.stomp_ghost

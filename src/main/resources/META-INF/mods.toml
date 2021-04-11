@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[35,)" 
+
+license="All rights reserved"
+issueTrackerURL="https://nothing.net/srslynothinghere/goaway"
+
+[[mods]]
+
+	modId="smoothfocus"
+
+	version="1.0"
+	
+	displayName="Smooth Focus"
+	
+	displayURL="https://www.curseforge.com/"
+	
+	logoFile="logo.png"
+	
+	credits="Thanks for this example mod goes to Java"
+
+	authors="Love, Cheese and small house plants"
+
+	description='''No description yet...'''
+	
+

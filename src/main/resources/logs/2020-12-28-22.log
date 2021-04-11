@@ -1,0 +1,282 @@
+[28Dec2020 10:01:00.653] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--gameDir, ., --launchTarget, fmluserdevclient, --fml.mcpVersion, 20200911.084530, --fml.mcVersion, 1.16.3, --fml.forgeGroup, net.minecraftforge, --fml.forgeVersion, 34.1.0, --version, MOD_DEV, --assetIndex, 1.16, --assetsDir, C:\Users\Waffles\.gradle\caches\forge_gradle\assets, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[28Dec2020 10:01:00.659] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 7.0.1+78+master.e9771d8 starting: java version 1.8.0_271 by Oracle Corporation
+[28Dec2020 10:01:01.666] [main/INFO] [net.minecraftforge.fml.loading.FixSSL/CORE]: Added Lets Encrypt root certificates as additional trust
+[28Dec2020 10:01:01.724] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.1 Source=file:/C:/Users/Waffles/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.1/3099ac85bce29d37a22d3561073d01eb99b0cf4b/mixin-0.8.1.jar Service=ModLauncher Env=CLIENT
+[28Dec2020 10:01:03.746] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'fmluserdevclient' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\Waffles\.gradle\caches\forge_gradle\assets, --assetIndex, 1.16, --username, Dev, --accessToken, ????????, --userProperties, {}]
+[28Dec2020 10:01:13.640] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', name='PROD'
+[28Dec2020 10:01:13.716] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[28Dec2020 10:01:13.952] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.2.2 build 10
+[28Dec2020 10:01:14.932] [modloading-worker-2/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 34.1.0, for MC 1.16.3 with MCP 20200911.084530
+[28Dec2020 10:01:14.932] [modloading-worker-2/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v34.1.0 Initialized
+[28Dec2020 10:01:14.976] [modloading-worker-3/INFO] [com.se7en.forgepractice.FPMain/]: Entities Registered
+[28Dec2020 10:01:16.010] [Render thread/ERROR] [net.minecraft.util.Util/]: No data fixer registered for forgepracticestomp_ghost
+[28Dec2020 10:01:16.011] [Render thread/ERROR] [net.minecraft.util.Util/]: No data fixer registered for geoexampleentity
+[28Dec2020 10:01:16.011] [Render thread/ERROR] [net.minecraft.util.Util/]: No data fixer registered for bikeentity
+[28Dec2020 10:01:17.351] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
+[28Dec2020 10:01:17.487] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[28Dec2020 10:01:17.759] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/maven/net/minecraftforge/forge/promotions_slim.json
+[28Dec2020 10:01:18.658] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: UP_TO_DATE Current: 34.1.0 Target: null
+[28Dec2020 10:01:18.659] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forgepractice] Starting version check at http://myurl.me/
+[28Dec2020 10:01:19.162] [Forge Version Check/WARN] [net.minecraftforge.fml.VersionChecker/]: Failed to process update information
+java.io.IOException: Server returned HTTP response code: 403 for URL: http://myurl.me/
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_271]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_271]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source) ~[?:1.8.0_271]
+	at java.lang.reflect.Constructor.newInstance(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection$10.run(Unknown Source) ~[?:1.8.0_271]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getChainedException(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[?:1.8.0_271]
+	at net.minecraftforge.fml.VersionChecker$1.openUrlStream(VersionChecker.java:171) ~[?:?]
+	at net.minecraftforge.fml.VersionChecker$1.process(VersionChecker.java:187) ~[?:?]
+	at java.lang.Iterable.forEach(Unknown Source) [?:1.8.0_271]
+	at net.minecraftforge.fml.VersionChecker$1.run(VersionChecker.java:139) [?:?]
+Caused by: java.io.IOException: Server returned HTTP response code: 403 for URL: http://myurl.me/
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source) ~[?:1.8.0_271]
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source) ~[?:1.8.0_271]
+	at java.net.HttpURLConnection.getResponseCode(Unknown Source) ~[?:1.8.0_271]
+	at net.minecraftforge.fml.VersionChecker$1.openUrlStream(VersionChecker.java:155) ~[?:?]
+	... 3 more
+[28Dec2020 10:01:29.786] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.786] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.786] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.786] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.787] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.788] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.789] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.797] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.797] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.797] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.797] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.797] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.798] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.799] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:29.799] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:01:29.799] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:01:29.799] [modloading-worker-2/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:01:31.808] [Render thread/INFO] [net.minecraft.client.audio.SoundSystem/]: OpenAL initialized.
+[28Dec2020 10:01:31.809] [Render thread/INFO] [net.minecraft.client.audio.SoundEngine/SOUNDS]: Sound engine started
+[28Dec2020 10:01:32.189] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[28Dec2020 10:01:32.345] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[28Dec2020 10:01:32.347] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[28Dec2020 10:01:32.350] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[28Dec2020 10:01:32.357] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[28Dec2020 10:01:32.358] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[28Dec2020 10:01:32.361] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[28Dec2020 10:01:33.439] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[28Dec2020 10:01:33.450] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[28Dec2020 10:01:33.452] [Render thread/INFO] [net.minecraft.client.renderer.texture.AtlasTexture/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[28Dec2020 10:01:33.684] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[28Dec2020 10:03:46.239] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, destination] and [teleport, targets] with inputs: [Player, 0123, @e, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[28Dec2020 10:03:46.240] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[28Dec2020 10:03:46.241] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, location] and [teleport, targets] with inputs: [0.1 -0.5 .9, 0 0 0]
+[28Dec2020 10:03:46.242] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets] and [teleport, destination] with inputs: [Player, 0123, dd12be42-52a9-4a91-a8a1-11c01849e498]
+[28Dec2020 10:03:46.244] [Render thread/WARN] [net.minecraft.command.Commands/]: Ambiguity between arguments [teleport, targets, location] and [teleport, targets, destination] with inputs: [0.1 -0.5 .9, 0 0 0]
+[28Dec2020 10:03:46.248] [Render thread/INFO] [net.minecraft.resources.SimpleReloadableResourceManager/]: Reloading ResourceManager: Default, forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar, main, forge-1.16.4-geckolib-3.0.0_mapped_snapshot_20201028-1.16.3.jar
+[28Dec2020 10:03:47.760] [Render thread/INFO] [net.minecraft.item.crafting.RecipeManager/]: Loaded 7 recipes
+[28Dec2020 10:03:49.123] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 927 advancements
+[28Dec2020 10:03:49.345] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[28Dec2020 10:03:49.348] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.348] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.348] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.348] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.348] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.349] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.350] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.351] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.352] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.353] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.353] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.353] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.353] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.353] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.354] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.354] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.354] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.464] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.465] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.466] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.467] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.468] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.468] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.468] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.468] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.468] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.468] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:49.469] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity forgepractice:stomp_ghost has no attributes
+[28Dec2020 10:03:49.470] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:geoexampleentity has no attributes
+[28Dec2020 10:03:49.470] [Render thread/ERROR] [net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes/]: Entity geckolib3:bikeentity has no attributes
+[28Dec2020 10:03:50.755] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', name='PROD'
+[28Dec2020 10:03:50.800] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Starting integrated minecraft server version 1.16.3
+[28Dec2020 10:03:50.801] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Generating keypair
+[28Dec2020 10:03:51.068] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[28Dec2020 10:03:52.434] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[28Dec2020 10:03:52.435] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[28Dec2020 10:03:52.435] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[28Dec2020 10:03:52.644] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 0%
+[28Dec2020 10:03:53.359] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Preparing spawn area: 95%
+[28Dec2020 10:03:53.416] [Render thread/INFO] [net.minecraft.world.chunk.listener.LoggingChunkStatusListener/]: Time elapsed: 2329 ms
+[28Dec2020 10:03:53.725] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Changing view distance to 9, from 10
+[28Dec2020 10:03:55.629] [Netty Local Client IO #0/INFO] [net.minecraftforge.fml.network.NetworkHooks/]: Connected to a modded server.
+[28Dec2020 10:03:55.690] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.advancements.PlayerAdvancements@760d40c5
+[28Dec2020 10:03:55.721] [Server thread/INFO] [net.minecraft.server.management.PlayerList/]: Dev[local:E:c875a9b8] logged in with entity id 107 at (54.96830375510929, 4.0, -120.8338235627987)
+[28Dec2020 10:03:55.783] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[28Dec2020 10:03:56.333] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[28Dec2020 10:03:56.387] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[28Dec2020 10:03:56.566] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 62 advancements
+[28Dec2020 10:03:56.757] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[28Dec2020 10:03:56.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[28Dec2020 10:05:15.348] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
+[28Dec2020 10:05:15.367] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Set own game mode to Creative Mode
+[28Dec2020 10:05:25.632] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 63 advancements
+[28Dec2020 10:05:29.897] [Server thread/WARN] [net.minecraft.entity.EntityType/]: Exception loading entity: 
+java.lang.NullPointerException: null
+	at net.minecraft.entity.ai.attributes.AttributeModifierManager.getAttributeValue(AttributeModifierManager.java:67) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.LivingEntity.getAttributeValue(LivingEntity.java:1849) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.LivingEntity.getMaxHealth(LivingEntity.java:1610) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.LivingEntity.<init>(LivingEntity.java:209) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.MobEntity.<init>(MobEntity.java:108) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.CreatureEntity.<init>(CreatureEntity.java:13) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.monster.MonsterEntity.<init>(MonsterEntity.java:29) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at com.se7en.forgepractice.entity.StompGhostEntity.<init>(StompGhostEntity.java:12) ~[main/:?]
+	at net.minecraft.entity.EntityType.create(EntityType.java:448) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.EntityType.lambda$loadEntityUnchecked$1(EntityType.java:459) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at java.util.Optional.map(Unknown Source) ~[?:1.8.0_271]
+	at net.minecraft.entity.EntityType.loadEntityUnchecked(EntityType.java:458) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.EntityType.loadEntity(EntityType.java:516) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.entity.EntityType.loadEntityAndExecute(EntityType.java:498) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.command.impl.SummonCommand.summonEntity(SummonCommand.java:50) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at net.minecraft.command.impl.SummonCommand.lambda$register$1(SummonCommand.java:34) ~[forge-1.16.3-34.1.0_mapped_snapshot_20201028-1.16.3-recomp.jar:?]
+	at com.mojang.brigadier.CommandDispatcher.execute(CommandDispatcher.java:262) ~[brigadier-1.0.17.jar:?]
+	at net.minecraft.command.Commands.handleCommand(Commands.java:222) ~[?:?]
+	at net.minecraft.network.play.ServerPlayNetHandler.handleSlashCommand(ServerPlayNetHandler.java:1079) ~[?:?]
+	at net.minecraft.network.play.ServerPlayNetHandler.processChatMessage(ServerPlayNetHandler.java:1059) ~[?:?]
+	at net.minecraft.network.play.client.CChatMessagePacket.processPacket(CChatMessagePacket.java:40) ~[?:?]
+	at net.minecraft.network.play.client.CChatMessagePacket.processPacket(CChatMessagePacket.java:8) ~[?:?]
+	at net.minecraft.network.PacketThreadUtil.lambda$checkThreadAndEnqueue$0(PacketThreadUtil.java:19) ~[?:?]
+	at net.minecraft.util.concurrent.TickDelayedTask.run(TickDelayedTask.java:20) ~[?:?]
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.run(ThreadTaskExecutor.java:139) ~[?:?]
+	at net.minecraft.util.concurrent.RecursiveEventLoop.run(RecursiveEventLoop.java:22) ~[?:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:754) ~[?:?]
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:156) ~[?:?]
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveOne(ThreadTaskExecutor.java:109) ~[?:?]
+	at net.minecraft.server.MinecraftServer.driveOneInternal(MinecraftServer.java:737) ~[?:?]
+	at net.minecraft.server.MinecraftServer.driveOne(MinecraftServer.java:731) ~[?:?]
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.driveUntil(ThreadTaskExecutor.java:122) ~[?:?]
+	at net.minecraft.server.MinecraftServer.runScheduledTasks(MinecraftServer.java:717) ~[?:?]
+	at net.minecraft.server.MinecraftServer.func_240802_v_(MinecraftServer.java:663) ~[?:?]
+	at net.minecraft.server.MinecraftServer.lambda$startServer$0(MinecraftServer.java:230) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_271]
+[28Dec2020 10:05:29.933] [Render thread/INFO] [net.minecraft.client.gui.NewChatGui/]: [CHAT] Unable to summon entity
+[28Dec2020 10:05:30.766] [Server thread/INFO] [net.minecraft.server.integrated.IntegratedServer/]: Saving and pausing game...
+[28Dec2020 10:05:30.781] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[28Dec2020 10:05:30.833] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[28Dec2020 10:05:30.836] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
