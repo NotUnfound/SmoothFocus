@@ -1,0 +1,2 @@
+# SmoothFocus
+A small configurable zoom mod for Forge.
