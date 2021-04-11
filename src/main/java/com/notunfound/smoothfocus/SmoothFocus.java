@@ -1,4 +1,4 @@
-package com.unfound.smoothfocus;
+package com.notunfound.smoothfocus;
 
 import org.lwjgl.glfw.GLFW;
 

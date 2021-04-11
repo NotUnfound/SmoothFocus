@@ -1,6 +1,6 @@
-package com.unfound.smoothfocus.event;
+package com.notunfound.smoothfocus.event;
 
-import com.unfound.smoothfocus.SmoothFocus;
+import com.notunfound.smoothfocus.SmoothFocus;
 
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
@@ -23,7 +23,7 @@ public class ZoomEvent {
 		 */
 
 		toggleTimer = Math.max(0, toggleTimer - 1);
-		
+
 		if (isToggled) {
 			fovModifier = -1;
 		} else if (!SmoothFocus.keyBindZoom.isKeyDown())

@@ -15,11 +15,9 @@ issueTrackerURL="https://nothing.net/srslynothinghere/goaway"
 	displayURL="https://www.curseforge.com/"
 	
 	logoFile="logo.png"
-	
-	credits="Thanks for this example mod goes to Java"
 
-	authors="Love, Cheese and small house plants"
+	authors="NotUnfound"
 
-	description='''No description yet...'''
+	description='''A client-side only configureable zoom mod.'''
 	
 
