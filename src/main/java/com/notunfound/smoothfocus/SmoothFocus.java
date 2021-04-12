@@ -1,7 +1,5 @@
 package com.notunfound.smoothfocus;
 
-import org.lwjgl.glfw.GLFW;
-
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -14,7 +12,7 @@ public class SmoothFocus {
 
 	public static final String MODID = "smoothfocus";
 
-	public static final KeyBinding keyBindZoom = new KeyBinding("key.zoom_in", GLFW.GLFW_KEY_J, "key.categories.smoothfocus");
+	public static KeyBinding keyBindZoom;
 
 	public SmoothFocus() {
 
@@ -25,6 +23,8 @@ public class SmoothFocus {
 	}
 
 	private void registerKeybind(final FMLClientSetupEvent event) {
+		
+		keyBindZoom = new KeyBinding("key.zoom_in", 76, "key.categories.smoothfocus");
 
 		ClientRegistry.registerKeyBinding(keyBindZoom);
 
