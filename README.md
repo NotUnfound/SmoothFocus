@@ -1,3 +1,3 @@
 ## SmoothFocus
 
-A small, client-side only, configurable zoom mod for forge.
+A small and configurable zoom mod for forge.
