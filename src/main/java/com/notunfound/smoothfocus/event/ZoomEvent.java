@@ -17,9 +17,6 @@ public class ZoomEvent {
 
 	@SubscribeEvent
 	public static void changeFOV(final FOVUpdateEvent event) {
-		
-		System.out.println(SmoothFocus.keyBindZoom.isKeyDown());
-
 		/*
 		 * Tick the double-tap timer.
 		 */
@@ -41,7 +38,7 @@ public class ZoomEvent {
 			event.setCanceled(true);
 		}
 	}
-
+	
 	@SubscribeEvent
 	public static void handleToggle(final KeyInputEvent event) {
 
