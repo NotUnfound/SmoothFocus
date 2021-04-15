@@ -45,7 +45,7 @@ public class ConfigScreen extends Screen {
 			}, (x, y) -> {
 				SETTINGS.maxZoom.set(y.intValue());
 			}, (x, y) -> {
-				return y.getMessageWithValue((int) y.get(x));
+				return new TranslationTextComponent("smoothfocus.config.max_zoom", SETTINGS.maxZoom.get());
 			});
 	private SliderPercentageOption scrollSpeedOption = new SliderPercentageOption("smoothfocus.config.scroll_speed", 1,
 			10, 1.0f, x -> {
@@ -53,7 +53,7 @@ public class ConfigScreen extends Screen {
 			}, (x, y) -> {
 				SETTINGS.scrollZoomSpeed.set(y.intValue());
 			}, (x, y) -> {
-				return y.getMessageWithValue((int) y.get(x));
+				return new TranslationTextComponent("smoothfocus.config.scroll_speed", SETTINGS.maxZoom.get());
 			});
 
 	private OptionsRowList options;
@@ -70,8 +70,12 @@ public class ConfigScreen extends Screen {
 
 		options = new OptionsRowList(minecraft, width, height, 24, height - 32, 25);
 
-		options.addOptions(new AbstractOption[] { smoothOnToggleOption, smoothOnScrollOption, doubleClickOnOption,
-				doubleClickOffOption, scrollSpeedOption, maxZoomOption });
+		AbstractOption[] optionsArray = new AbstractOption[] { smoothOnToggleOption, smoothOnScrollOption,
+				doubleClickOnOption, doubleClickOffOption, scrollSpeedOption, maxZoomOption };
+		
+		for (AbstractOption o : optionsArray) {
+			options.addOption(o);
+		}
 
 		children.add(options);
 
