@@ -1,4 +1,11 @@
 {
 "key.zoom_in": "Zoom",
-"key.categories.smoothfocus": "SmoothFocus"
+"key.categories.smoothfocus": "SmoothFocus",
+"smoothfocus.config_gui.title":"SmoothFocus",
+"smoothfocus.config.smooth_on_toggle":"Smooth When Toggled",
+"smoothfocus.config.smooth_on_scroll":"Smooth When Scrolling",
+"smoothfocus.config.double_click_on":"Toggle Double Click",
+"smoothfocus.config.double_click_off":"Untoggle Double Click",
+"smoothfocus.config.scroll_speed":"Scroll Zoom Speed",
+"smoothfocus.config.max_zoom":"Maximum Zoom Amount"
 }

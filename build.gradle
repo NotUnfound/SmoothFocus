@@ -8,13 +8,15 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 
 //==================================
 
+apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.1'
+version = '1.1.0'
 group = 'com.notunfound.smoothfocus'
 archivesBaseName = 'smoothfocus'
 
@@ -24,6 +26,9 @@ println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getPro
 minecraft {
 
     mappings channel: 'snapshot', version: '20210309-1.16.5'
+         
+    accessTransformer = file('src/main/resources/META-INF/accesstransformers.cfg')
+         
 
     runs {
         client {

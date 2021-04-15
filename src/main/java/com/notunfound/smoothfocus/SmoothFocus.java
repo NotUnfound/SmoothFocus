@@ -1,7 +1,11 @@
 package com.notunfound.smoothfocus;
 
+import com.notunfound.smoothfocus.client.screen.ConfigScreen;
+
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -11,22 +15,24 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class SmoothFocus {
 
 	public static final String MODID = "smoothfocus";
-
-	public static KeyBinding keyBindZoom;
+	public static KeyBinding KEY_BIND_ZOOM;
 
 	public SmoothFocus() {
 
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerKeybind);
+		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerOptions);
+
+		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY,
+				() -> (x, y) -> new ConfigScreen(y));
 
 		MinecraftForge.EVENT_BUS.register(this);
-		
+
 	}
 
-	private void registerKeybind(final FMLClientSetupEvent event) {
+	private void registerOptions(final FMLClientSetupEvent event) {
+
+		KEY_BIND_ZOOM = new KeyBinding("key.zoom_in", 76, "key.categories.smoothfocus");
+
+		ClientRegistry.registerKeyBinding(KEY_BIND_ZOOM);
 		
-		keyBindZoom = new KeyBinding("key.zoom_in", 76, "key.categories.smoothfocus");
-
-		ClientRegistry.registerKeyBinding(keyBindZoom);
-
 	}
 }
