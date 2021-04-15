@@ -1,5 +1,7 @@
 package com.notunfound.smoothfocus;
 
+import org.lwjgl.glfw.GLFW;
+
 import com.notunfound.smoothfocus.client.screen.ConfigScreen;
 
 import net.minecraft.client.settings.KeyBinding;
@@ -30,7 +32,7 @@ public class SmoothFocus {
 
 	private void registerOptions(final FMLClientSetupEvent event) {
 
-		KEY_BIND_ZOOM = new KeyBinding("key.zoom_in", 76, "key.categories.smoothfocus");
+		KEY_BIND_ZOOM = new KeyBinding("key.zoom_in", GLFW.GLFW_KEY_J, "key.categories.smoothfocus");
 
 		ClientRegistry.registerKeyBinding(KEY_BIND_ZOOM);
 		
