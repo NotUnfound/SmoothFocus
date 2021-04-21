@@ -58,7 +58,7 @@ public class ConfigScreen extends Screen {
 			}, (x, y) -> {
 				SETTINGS.scrollZoomSpeed.set(y.intValue());
 			}, (x, y) -> {
-				return new TranslationTextComponent("smoothfocus.config.scroll_speed", SETTINGS.maxZoom.get());
+				return new TranslationTextComponent("smoothfocus.config.scroll_speed", SETTINGS.scrollZoomSpeed.get());
 			});
 
 	private OptionsRowList options;
