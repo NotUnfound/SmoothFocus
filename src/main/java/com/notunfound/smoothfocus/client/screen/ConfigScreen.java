@@ -24,21 +24,25 @@ public class ConfigScreen extends Screen {
 	}, (x, y) -> {
 		SETTINGS.smoothOnToggle.set(y);
 	});
+	
 	private BooleanOption smoothOnScrollOption = new BooleanOption("smoothfocus.config.smooth_on_scroll", (x) -> {
 		return SETTINGS.smoothOnScroll.get();
 	}, (x, y) -> {
 		SETTINGS.smoothOnScroll.set(y);
 	});
+	
 	private BooleanOption doubleClickOnOption = new BooleanOption("smoothfocus.config.double_click_on", (x) -> {
 		return SETTINGS.doubleClickOn.get();
 	}, (x, y) -> {
 		SETTINGS.doubleClickOn.set(y);
 	});
+	
 	private BooleanOption doubleClickOffOption = new BooleanOption("smoothfocus.config.double_click_off", (x) -> {
 		return SETTINGS.doubleClickOff.get();
 	}, (x, y) -> {
 		SETTINGS.doubleClickOff.set(y);
 	});
+	
 	private SliderPercentageOption maxZoomOption = new SliderPercentageOption("smoothfocus.config.max_zoom", 0, 100,
 			1.0f, x -> {
 				return (double) SETTINGS.maxZoom.get();
@@ -47,6 +51,7 @@ public class ConfigScreen extends Screen {
 			}, (x, y) -> {
 				return new TranslationTextComponent("smoothfocus.config.max_zoom", SETTINGS.maxZoom.get());
 			});
+	
 	private SliderPercentageOption scrollSpeedOption = new SliderPercentageOption("smoothfocus.config.scroll_speed", 1,
 			10, 1.0f, x -> {
 				return (double) SETTINGS.scrollZoomSpeed.get();
