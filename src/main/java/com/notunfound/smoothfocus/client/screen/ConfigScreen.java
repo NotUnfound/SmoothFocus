@@ -9,6 +9,8 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.widget.list.OptionsRowList;
 import net.minecraft.client.settings.BooleanOption;
 import net.minecraft.client.settings.SliderPercentageOption;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -24,41 +26,41 @@ public class ConfigScreen extends Screen {
 	}, (x, y) -> {
 		SETTINGS.smoothOnToggle.set(y);
 	});
-	
+
 	private BooleanOption smoothOnScrollOption = new BooleanOption("smoothfocus.config.smooth_on_scroll", (x) -> {
 		return SETTINGS.smoothOnScroll.get();
 	}, (x, y) -> {
 		SETTINGS.smoothOnScroll.set(y);
 	});
-	
+
 	private BooleanOption doubleClickOnOption = new BooleanOption("smoothfocus.config.double_click_on", (x) -> {
 		return SETTINGS.doubleClickOn.get();
 	}, (x, y) -> {
 		SETTINGS.doubleClickOn.set(y);
 	});
-	
+
 	private BooleanOption doubleClickOffOption = new BooleanOption("smoothfocus.config.double_click_off", (x) -> {
 		return SETTINGS.doubleClickOff.get();
 	}, (x, y) -> {
 		SETTINGS.doubleClickOff.set(y);
 	});
-	
+
 	private SliderPercentageOption maxZoomOption = new SliderPercentageOption("smoothfocus.config.max_zoom", 0, 100,
 			1.0f, x -> {
 				return (double) SETTINGS.maxZoom.get();
 			}, (x, y) -> {
 				SETTINGS.maxZoom.set(y.intValue());
 			}, (x, y) -> {
-				return new TranslationTextComponent("smoothfocus.config.max_zoom", SETTINGS.maxZoom.get());
+				return createValuedKey(y.get(x), "smoothfocus.config.max_zoom");
 			});
-	
+
 	private SliderPercentageOption scrollSpeedOption = new SliderPercentageOption("smoothfocus.config.scroll_speed", 1,
 			10, 1.0f, x -> {
 				return (double) SETTINGS.scrollZoomSpeed.get();
 			}, (x, y) -> {
 				SETTINGS.scrollZoomSpeed.set(y.intValue());
 			}, (x, y) -> {
-				return new TranslationTextComponent("smoothfocus.config.scroll_speed", SETTINGS.scrollZoomSpeed.get());
+				return createValuedKey(y.get(x), "smoothfocus.config.scroll_speed");
 			});
 
 	private OptionsRowList options;
@@ -77,7 +79,7 @@ public class ConfigScreen extends Screen {
 
 		AbstractOption[] optionsArray = new AbstractOption[] { smoothOnToggleOption, smoothOnScrollOption,
 				doubleClickOnOption, doubleClickOffOption, scrollSpeedOption, maxZoomOption };
-		
+
 		for (AbstractOption o : optionsArray) {
 			options.addOption(o);
 		}
@@ -106,6 +108,11 @@ public class ConfigScreen extends Screen {
 	public void onClose() {
 		SETTINGS.save();
 		super.onClose();
+	}
+
+	public ITextComponent createValuedKey(double value, String name) {
+		return new TranslationTextComponent("options.generic_value", new TranslationTextComponent(name),
+				new StringTextComponent(Integer.toString((int) value)));
 	}
 
 }
