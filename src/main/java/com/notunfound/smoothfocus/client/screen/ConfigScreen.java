@@ -1,6 +1,7 @@
 package com.notunfound.smoothfocus.client.screen;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
+import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
 import net.minecraft.client.AbstractOption;
 import net.minecraft.client.gui.DialogTexts;
@@ -14,61 +15,36 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 @OnlyIn(Dist.CLIENT)
 public class ConfigScreen extends Screen {
 
 	private static final SmoothFocusSettings SETTINGS = SmoothFocusSettings.INSTANCE;
 
-	private BooleanOption smoothOnToggleOption = new BooleanOption("smoothfocus.config.smooth_on_toggle", (x) -> {
+	private BooleanOption smoothOnToggleOption = new ModBooleanOption("smoothfocus.config.smooth_on_toggle", SETTINGS.smoothOnToggle);
 
-		return SETTINGS.smoothOnToggle.get();
-	}, (x, y) -> {
-		SETTINGS.smoothOnToggle.set(y);
-	});
+	private BooleanOption smoothOnScrollOption = new ModBooleanOption("smoothfocus.config.smooth_on_scroll", SETTINGS.smoothOnScroll);
 
-	private BooleanOption smoothOnScrollOption = new BooleanOption("smoothfocus.config.smooth_on_scroll", (x) -> {
-		return SETTINGS.smoothOnScroll.get();
-	}, (x, y) -> {
-		SETTINGS.smoothOnScroll.set(y);
-	});
+	private BooleanOption doubleClickOnOption = new ModBooleanOption("smoothfocus.config.double_click_on", SETTINGS.doubleClickOn);
 
-	private BooleanOption doubleClickOnOption = new BooleanOption("smoothfocus.config.double_click_on", (x) -> {
-		return SETTINGS.doubleClickOn.get();
-	}, (x, y) -> {
-		SETTINGS.doubleClickOn.set(y);
-	});
+	private BooleanOption doubleClickOffOption = new ModBooleanOption("smoothfocus.config.double_click_off", SETTINGS.doubleClickOff);
 
-	private BooleanOption doubleClickOffOption = new BooleanOption("smoothfocus.config.double_click_off", (x) -> {
-		return SETTINGS.doubleClickOff.get();
-	}, (x, y) -> {
-		SETTINGS.doubleClickOff.set(y);
-	});
+	private BooleanOption scrollWhenToggled = new ModBooleanOption("smoothfocus.config.scroll_when_toggled", SETTINGS.scrollWhenToggled);
 
-	private SliderPercentageOption maxZoomOption = new SliderPercentageOption("smoothfocus.config.max_zoom", 0, 100,
-			1.0f, x -> {
-				return (double) SETTINGS.maxZoom.get();
-			}, (x, y) -> {
-				SETTINGS.maxZoom.set(y.intValue());
-			}, (x, y) -> {
-				return createValuedKey(y.get(x), "smoothfocus.config.max_zoom");
-			});
+	private SliderPercentageOption maxZoomOption = new ModSliderOption("smoothfocus.config.max_zoom",
+			0, 100, 1.0f, SETTINGS.maxZoom);
 
-	private SliderPercentageOption scrollSpeedOption = new SliderPercentageOption("smoothfocus.config.scroll_speed", 1,
-			10, 1.0f, x -> {
-				return (double) SETTINGS.scrollZoomSpeed.get();
-			}, (x, y) -> {
-				SETTINGS.scrollZoomSpeed.set(y.intValue());
-			}, (x, y) -> {
-				return createValuedKey(y.get(x), "smoothfocus.config.scroll_speed");
-			});
+	private SliderPercentageOption scrollSpeedOption = new ModSliderOption(
+			"smoothfocus.config.scroll_speed", 1, 10, 1.0f, SETTINGS.scrollZoomSpeed);
 
 	private OptionsRowList options;
 
 	private Screen parentScreen;
 
 	public ConfigScreen(Screen parent) {
-		super(new TranslationTextComponent("smoothfocus.config_gui.title", "SmoothFocus"));
+		super(new TranslationTextComponent("smoothfocus.config_gui.title"));
 		this.parentScreen = parent;
 	}
 
@@ -78,8 +54,11 @@ public class ConfigScreen extends Screen {
 		options = new OptionsRowList(minecraft, width, height, 24, height - 32, 25);
 
 		AbstractOption[] optionsArray = new AbstractOption[] { smoothOnToggleOption, smoothOnScrollOption,
-				doubleClickOnOption, doubleClickOffOption, scrollSpeedOption, maxZoomOption };
+				doubleClickOnOption, doubleClickOffOption, scrollWhenToggled, scrollSpeedOption, maxZoomOption };
 
+		/*
+		 * This is so that the buttons will be wide, one per row
+		 */
 		for (AbstractOption o : optionsArray) {
 			options.addOption(o);
 		}
@@ -109,8 +88,43 @@ public class ConfigScreen extends Screen {
 		SETTINGS.save();
 		super.onClose();
 	}
+	
+	/*
+	 * More concise versions of the forge options for this specific usage
+	 */
+	
+	protected class ModBooleanOption extends BooleanOption {
 
-	public ITextComponent createValuedKey(double value, String name) {
+		public ModBooleanOption(String name, BooleanValue setting) {
+			super(name, (x) -> {
+				return setting.get();
+			}, (x, y) -> {
+				setting.set(y);
+			});
+		}
+	}
+
+	protected class ModSliderOption extends SliderPercentageOption {
+
+		public ModSliderOption(String name, double minValueIn, double maxValueIn, float stepSizeIn, IntValue setting) {
+			super(name, minValueIn, maxValueIn, stepSizeIn, x -> {
+
+				return (double) setting.get();
+
+			}, (x, y) -> {
+
+				setting.set(y.intValue());
+
+			}, (x, y) -> {
+
+				return createValuedKey(y.get(x), name);
+
+			});
+		}
+
+	}
+
+	protected static ITextComponent createValuedKey(double value, String name) {
 		return new TranslationTextComponent("options.generic_value", new TranslationTextComponent(name),
 				new StringTextComponent(Integer.toString((int) value)));
 	}

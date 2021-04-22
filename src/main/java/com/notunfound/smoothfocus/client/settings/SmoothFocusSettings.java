@@ -1,4 +1,4 @@
-package com.notunfound.smoothfocus.client.screen;
+package com.notunfound.smoothfocus.client.settings;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,6 +29,7 @@ public class SmoothFocusSettings {
 	public BooleanValue smoothOnScroll;
 	public BooleanValue doubleClickOn;
 	public BooleanValue doubleClickOff;
+	public BooleanValue scrollWhenToggled;
 	public IntValue scrollZoomSpeed;
 	public IntValue maxZoom;
 
@@ -51,6 +52,7 @@ public class SmoothFocusSettings {
 		smoothOnScroll = builder.translation("smoothfocus.config.smooth_on_scroll").define("smoothOnScroll", true);
 		doubleClickOn = builder.translation("smoothfocus.config.toggle_double_click").define("toggleDoubleClick", true);
 		doubleClickOff = builder.translation("smoothfocus.config.untoggle_double_click").define("untoggleDoubleClick", false);
+		scrollWhenToggled = builder.translation("smoothfocus.config.scroll_when_toggled").define("scrollWhenToggled", false);
 
 		scrollZoomSpeed = builder.translation("smoothfocus.config.smooth_on_toggle").defineInRange("scrollZoomSpeed", 8, 1, 10);
 		

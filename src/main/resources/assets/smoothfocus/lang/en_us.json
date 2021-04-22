@@ -6,6 +6,7 @@
 "smoothfocus.config.smooth_on_scroll":"Smooth When Scrolling",
 "smoothfocus.config.double_click_on":"Toggle Double Click",
 "smoothfocus.config.double_click_off":"Untoggle Double Click",
-"smoothfocus.config.scroll_speed":"Scroll Zoom Speed",
+"smoothfocus.config.scroll_when_toggled":"Zoom Scroll When Toggled",
+"smoothfocus.config.scroll_speed":"Zoom Scroll Speed",
 "smoothfocus.config.max_zoom":"Maximum Zoom Amount"
 }
