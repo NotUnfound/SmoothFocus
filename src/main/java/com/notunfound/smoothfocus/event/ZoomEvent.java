@@ -24,9 +24,9 @@ public class ZoomEvent {
 	 * This class changes the fov, reads the settings, and handles the toggle
 	 */
 
-	private static final GameSettings settings = Minecraft.getInstance().gameSettings;
+	private static final GameSettings GAMESETTINGS = Minecraft.getInstance().gameSettings;
 
-	private static final SmoothFocusSettings modSettings = SmoothFocusSettings.INSTANCE;
+	private static final SmoothFocusSettings MODSETTINGS = SmoothFocusSettings.INSTANCE;
 
 	/*
 	 * For the double tap
@@ -69,13 +69,13 @@ public class ZoomEvent {
 		 * toggle it is with a keybind it should be fine
 		 */
 
-		if (isToggled && modSettings.smoothOnToggle.get()) {
+		if (isToggled && MODSETTINGS.smoothOnToggle.get()) {
 
-			settings.smoothCamera = true;
+			GAMESETTINGS.smoothCamera = true;
 
-		} else if (!isToggled && SmoothFocus.KEY_BIND_ZOOM.isKeyDown() && modSettings.smoothOnScroll.get()) {
+		} else if (!isToggled && SmoothFocus.KEY_BIND_ZOOM.isKeyDown() && MODSETTINGS.smoothOnScroll.get()) {
 
-			settings.smoothCamera = true;
+			GAMESETTINGS.smoothCamera = true;
 
 		}
 
@@ -89,7 +89,7 @@ public class ZoomEvent {
 		 * prepare the queued boolean for the next time the zoom is activated
 		 */
 
-		queuedSmoothCamera = settings.smoothCamera;
+		queuedSmoothCamera = GAMESETTINGS.smoothCamera;
 
 	}
 
@@ -108,8 +108,8 @@ public class ZoomEvent {
 	@SubscribeEvent
 	public static void scrollEvent(final MouseScrollEvent event) {
 
-		boolean flag = modSettings.scrollWhenToggled.get() ? true : !isToggled;
-		boolean flag1 = modSettings.scrollWhenToggled.get() && isToggled;
+		boolean flag = MODSETTINGS.scrollWhenToggled.get() ? true : !isToggled;
+		boolean flag1 = MODSETTINGS.scrollWhenToggled.get() && isToggled;
 
 		if ((SmoothFocus.KEY_BIND_ZOOM.isKeyDown() || flag1) && flag) {
 
@@ -117,8 +117,8 @@ public class ZoomEvent {
 			 * Sets the modifier
 			 */
 			fovModifier = MathHelper.clamp(
-					fovModifier - (event.getScrollDelta() / (15 - modSettings.scrollZoomSpeed.get())),
-					-modSettings.maxZoom.get() / 100D, 0D);
+					fovModifier - (event.getScrollDelta() / (15 - MODSETTINGS.scrollZoomSpeed.get())),
+					-MODSETTINGS.maxZoom.get() / 100D, 0D);
 
 			/*
 			 * Make the hotbar not scroll while zooming in
@@ -149,7 +149,7 @@ public class ZoomEvent {
 				 * restores original smoothness
 				 */
 
-				settings.smoothCamera = queuedSmoothCamera;
+				GAMESETTINGS.smoothCamera = queuedSmoothCamera;
 
 			}
 
@@ -159,12 +159,12 @@ public class ZoomEvent {
 
 	private static void singleTap() {
 
-		if (!modSettings.doubleClickOn.get() && !isToggled) {
+		if (!MODSETTINGS.doubleClickOn.get() && !isToggled) {
 
 			isToggled = true;
-			fovModifier = -(modSettings.maxZoom.get() / 100D);
+			fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
 
-		} else if (!modSettings.doubleClickOff.get() && isToggled) {
+		} else if (!MODSETTINGS.doubleClickOff.get() && isToggled) {
 
 			isToggled = false;
 		}
@@ -172,12 +172,12 @@ public class ZoomEvent {
 
 	private static void doubleTap() {
 
-		if (modSettings.doubleClickOn.get() && !isToggled) {
+		if (MODSETTINGS.doubleClickOn.get() && !isToggled) {
 
 			isToggled = true;
-			fovModifier = -(modSettings.maxZoom.get() / 100D);
+			fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
 
-		} else if (modSettings.doubleClickOff.get() && isToggled) {
+		} else if (MODSETTINGS.doubleClickOff.get() && isToggled) {
 
 			isToggled = false;
 		}

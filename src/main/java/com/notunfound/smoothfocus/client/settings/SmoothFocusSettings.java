@@ -16,10 +16,12 @@ import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 public class SmoothFocusSettings {
 
 	public static final ForgeConfigSpec SPEC;
+	
 	/*
 	 * Singleton of the settings
 	 */
 	public static final SmoothFocusSettings INSTANCE;
+	
 	/*
 	 * Where the savedata will actually be stored
 	 */
