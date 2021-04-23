@@ -1,0 +1,12 @@
+{
+"key.zoom_in": "Thou hast zoometh in",
+"key.categories.smoothfocus": "SmoothFocus",
+"smoothfocus.config_gui.title":"SmoothFocus",
+"smoothfocus.config.smooth_on_toggle":"Smootheth thine camera when toggled",
+"smoothfocus.config.smooth_on_scroll":"Smootheth thine camera whilst thou hast scrolling",
+"smoothfocus.config.double_click_on":"Clicketh twice to zoometh in",
+"smoothfocus.config.double_click_off":"Clicketh twice to zoometh out",
+"smoothfocus.config.scroll_when_toggled":"Zoometh around whilst thou hast toggled",
+"smoothfocus.config.scroll_speed":"Zoometh scroll speed",
+"smoothfocus.config.max_zoom":"Greatest value of thine zoom"
+}

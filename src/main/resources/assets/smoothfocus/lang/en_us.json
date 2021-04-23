@@ -2,11 +2,11 @@
 "key.zoom_in": "Zoom",
 "key.categories.smoothfocus": "SmoothFocus",
 "smoothfocus.config_gui.title":"SmoothFocus",
-"smoothfocus.config.smooth_on_toggle":"Smooth When Toggled",
-"smoothfocus.config.smooth_on_scroll":"Smooth When Scrolling",
-"smoothfocus.config.double_click_on":"Toggle Double Click",
-"smoothfocus.config.double_click_off":"Untoggle Double Click",
-"smoothfocus.config.scroll_when_toggled":"Zoom Scroll When Toggled",
-"smoothfocus.config.scroll_speed":"Zoom Scroll Speed",
-"smoothfocus.config.max_zoom":"Maximum Zoom Amount"
+"smoothfocus.config.smooth_on_toggle":"Smooth When toggled",
+"smoothfocus.config.smooth_on_scroll":"Smooth when scrolling",
+"smoothfocus.config.double_click_on":"Toggle with double click",
+"smoothfocus.config.double_click_off":"Untoggle with double click",
+"smoothfocus.config.scroll_when_toggled":"Zoom Scroll when toggled",
+"smoothfocus.config.scroll_speed":"Zoom Scroll speed",
+"smoothfocus.config.max_zoom":"Maximum zoom amount"
 }
