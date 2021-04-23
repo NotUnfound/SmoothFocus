@@ -11,6 +11,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
+import net.minecraftforge.client.event.InputEvent.MouseInputEvent;
 import net.minecraftforge.client.event.InputEvent.MouseScrollEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -47,6 +48,17 @@ public class ZoomEvent {
 	public static void renderEvent(final EntityViewRenderEvent event) {
 
 		/*
+		 * Resets the all values when a GUI is opened, removing the mouse button
+		 * untoggle problems
+		 */
+		if (Minecraft.getInstance().currentScreen != null) {
+			GAMESETTINGS.smoothCamera = queuedSmoothCamera;
+			isToggled = false;
+			toggleTimer = 0;
+			fovModifier = 0;
+		}
+
+		/*
 		 * Called every render tick
 		 */
 
@@ -73,7 +85,7 @@ public class ZoomEvent {
 
 			GAMESETTINGS.smoothCamera = true;
 
-		} else if (!isToggled && SmoothFocus.KEY_BIND_ZOOM.isKeyDown() && MODSETTINGS.smoothOnScroll.get()) {
+		} else if (!isToggled && fovModifier < 0 && MODSETTINGS.smoothOnScroll.get()) {
 
 			GAMESETTINGS.smoothCamera = true;
 
@@ -127,12 +139,34 @@ public class ZoomEvent {
 		}
 	}
 
+	/*
+	 * For if the keybind is set to a mouse button
+	 */
 	@SubscribeEvent
-	public static void handleToggle(final KeyInputEvent event) {
+	public static void handleMouseToggle(final MouseInputEvent event) {
 
-		if (event.getKey() == SmoothFocus.KEY_BIND_ZOOM.getKey().getKeyCode()) {
+		zoomInput(event.getButton(), event.getAction());
 
-			if (event.getAction() == GLFW.GLFW_PRESS) {
+	}
+
+	/*
+	 * For if the keybind is set to a key
+	 */
+	@SubscribeEvent
+	public static void handleKeyToggle(final KeyInputEvent event) {
+
+		zoomInput(event.getKey(), event.getAction());
+
+	}
+
+	/*
+	 * Handles the toggle/untoggle
+	 */
+	private static void zoomInput(int button, int action) {
+
+		if (button == SmoothFocus.KEY_BIND_ZOOM.getKey().getKeyCode()) {
+
+			if (action == GLFW.GLFW_PRESS) {
 
 				singleTap();
 
@@ -143,7 +177,7 @@ public class ZoomEvent {
 					doubleTap();
 				}
 
-			} else if (event.getAction() == GLFW.GLFW_RELEASE && !isToggled) {
+			} else if (action == GLFW.GLFW_RELEASE && !isToggled) {
 
 				/*
 				 * restores original smoothness
@@ -154,7 +188,6 @@ public class ZoomEvent {
 			}
 
 		}
-
 	}
 
 	private static void singleTap() {
@@ -167,6 +200,7 @@ public class ZoomEvent {
 		} else if (!MODSETTINGS.doubleClickOff.get() && isToggled) {
 
 			isToggled = false;
+
 		}
 	}
 
@@ -180,6 +214,7 @@ public class ZoomEvent {
 		} else if (MODSETTINGS.doubleClickOff.get() && isToggled) {
 
 			isToggled = false;
+
 		}
 	}
 
