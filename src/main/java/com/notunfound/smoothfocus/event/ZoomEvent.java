@@ -11,11 +11,13 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
-import net.minecraftforge.client.event.InputEvent.MouseInputEvent;
 import net.minecraftforge.client.event.InputEvent.MouseScrollEvent;
+import net.minecraftforge.client.event.InputEvent.RawMouseEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+
+@SuppressWarnings("resource")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ZoomEvent {
 
@@ -46,7 +48,7 @@ public class ZoomEvent {
 
 	@SubscribeEvent
 	public static void renderEvent(final EntityViewRenderEvent event) {
-
+		
 		/*
 		 * Resets the all values when a GUI is opened, removing the mouse button
 		 * untoggle problems
@@ -143,10 +145,10 @@ public class ZoomEvent {
 	 * For if the keybind is set to a mouse button
 	 */
 	@SubscribeEvent
-	public static void handleMouseToggle(final MouseInputEvent event) {
-
-		zoomInput(event.getButton(), event.getAction());
-
+	public static void handleMouseToggle(final RawMouseEvent event) {
+		if (Minecraft.getInstance().currentScreen == null) {
+			zoomInput(event.getButton(), event.getAction());
+		}
 	}
 
 	/*
@@ -154,9 +156,9 @@ public class ZoomEvent {
 	 */
 	@SubscribeEvent
 	public static void handleKeyToggle(final KeyInputEvent event) {
-
-		zoomInput(event.getKey(), event.getAction());
-
+		if (Minecraft.getInstance().currentScreen == null) {
+			zoomInput(event.getKey(), event.getAction());
+		}
 	}
 
 	/*
@@ -168,14 +170,14 @@ public class ZoomEvent {
 
 			if (action == GLFW.GLFW_PRESS) {
 
-				singleTap();
-
 				if (toggleTimer == 0) {
 					toggleTimer = 7;
+					singleTap();
 				} else {
 					toggleTimer = 0;
 					doubleTap();
 				}
+				
 
 			} else if (action == GLFW.GLFW_RELEASE && !isToggled) {
 
