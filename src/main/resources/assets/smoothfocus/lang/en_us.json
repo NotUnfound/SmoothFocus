@@ -2,7 +2,7 @@
 "key.zoom_in": "Zoom",
 "key.categories.smoothfocus": "SmoothFocus",
 "smoothfocus.config_gui.title":"SmoothFocus",
-"smoothfocus.config.smooth_on_toggle":"Smooth When toggled",
+"smoothfocus.config.smooth_on_toggle":"Smooth when toggled",
 "smoothfocus.config.smooth_on_scroll":"Smooth when scrolling",
 "smoothfocus.config.double_click_on":"Toggle with double click",
 "smoothfocus.config.double_click_off":"Untoggle with double click",
