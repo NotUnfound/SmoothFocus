@@ -18,6 +18,8 @@ public class SmoothFocus {
 
 	public static final String MODID = "smoothfocus";
 	public static KeyBinding KEY_BIND_ZOOM;
+	
+	//will this push to the correct branch?
 
 	public SmoothFocus() {
 
