@@ -7,6 +7,8 @@
 "smoothfocus.config.double_click_on":"Tapz twice turn on",
 "smoothfocus.config.double_click_off":"Tapz twice turn off",
 "smoothfocus.config.scroll_when_toggled":"MOUSE WHEEL WHEN TOGGL",
+"smoothfocus.config.start_at_max_zoom": "Big stuf at the beghinin",
+"smoothfocus.config.disable_toggle": "No mor stiky zooms",
 "smoothfocus.config.scroll_speed":"wheel go FASTTT!!1! (or not ;-;)",
 "smoothfocus.config.max_zoom":"B i g g e s t zoom"
 }

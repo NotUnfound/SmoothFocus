@@ -23,21 +23,32 @@ public class ConfigScreen extends Screen {
 
 	private static final SmoothFocusSettings SETTINGS = SmoothFocusSettings.INSTANCE;
 
-	private BooleanOption smoothOnToggleOption = new ModBooleanOption("smoothfocus.config.smooth_on_toggle", SETTINGS.smoothOnToggle);
+	private BooleanOption smoothOnToggleOption = new ModBooleanOption("smoothfocus.config.smooth_on_toggle",
+			SETTINGS.smoothOnToggle);
 
-	private BooleanOption smoothOnScrollOption = new ModBooleanOption("smoothfocus.config.smooth_on_scroll", SETTINGS.smoothOnScroll);
+	private BooleanOption smoothOnScrollOption = new ModBooleanOption("smoothfocus.config.smooth_on_scroll",
+			SETTINGS.smoothOnScroll);
 
-	private BooleanOption doubleClickOnOption = new ModBooleanOption("smoothfocus.config.double_click_on", SETTINGS.doubleClickOn);
+	private BooleanOption doubleClickOnOption = new ModBooleanOption("smoothfocus.config.double_click_on",
+			SETTINGS.doubleClickOn);
 
-	private BooleanOption doubleClickOffOption = new ModBooleanOption("smoothfocus.config.double_click_off", SETTINGS.doubleClickOff);
+	private BooleanOption doubleClickOffOption = new ModBooleanOption("smoothfocus.config.double_click_off",
+			SETTINGS.doubleClickOff);
 
-	private BooleanOption scrollWhenToggled = new ModBooleanOption("smoothfocus.config.scroll_when_toggled", SETTINGS.scrollWhenToggled);
+	private BooleanOption scrollWhenToggledOption = new ModBooleanOption("smoothfocus.config.scroll_when_toggled",
+			SETTINGS.scrollWhenToggled);
 
-	private SliderPercentageOption maxZoomOption = new ModSliderOption("smoothfocus.config.max_zoom",
-			0, 100, 1.0f, SETTINGS.maxZoom);
+	private BooleanOption startAtMaxZoomOption = new ModBooleanOption("smoothfocus.config.start_at_max_zoom",
+			SETTINGS.startAtMaxZoom);
 
-	private SliderPercentageOption scrollSpeedOption = new ModSliderOption(
-			"smoothfocus.config.scroll_speed", 1, 10, 1.0f, SETTINGS.scrollZoomSpeed);
+	private BooleanOption disableToggleOption = new ModBooleanOption("smoothfocus.config.disable_toggle",
+			SETTINGS.disableToggle);
+
+	private SliderPercentageOption maxZoomOption = new ModSliderOption("smoothfocus.config.max_zoom", 0, 100, 1.0f,
+			SETTINGS.maxZoom);
+
+	private SliderPercentageOption scrollSpeedOption = new ModSliderOption("smoothfocus.config.scroll_speed", 1, 10,
+			1.0f, SETTINGS.scrollZoomSpeed);
 
 	private OptionsRowList options;
 
@@ -53,13 +64,14 @@ public class ConfigScreen extends Screen {
 
 		options = new OptionsRowList(minecraft, width, height, 24, height - 32, 25);
 
-		AbstractOption[] optionsArray = new AbstractOption[] { smoothOnToggleOption, smoothOnScrollOption,
-				doubleClickOnOption, doubleClickOffOption, scrollWhenToggled, scrollSpeedOption, maxZoomOption };
+		AbstractOption[] optionList = new AbstractOption[] { smoothOnToggleOption, smoothOnScrollOption,
+				doubleClickOnOption, doubleClickOffOption, startAtMaxZoomOption, scrollWhenToggledOption,
+				disableToggleOption, scrollSpeedOption, maxZoomOption };
 
 		/*
 		 * This is so that the buttons will be wide, one per row
 		 */
-		for (AbstractOption o : optionsArray) {
+		for (AbstractOption o : optionList) {
 			options.addOption(o);
 		}
 
@@ -88,11 +100,11 @@ public class ConfigScreen extends Screen {
 		SETTINGS.save();
 		super.onClose();
 	}
-	
+
 	/*
 	 * More concise versions of the forge options for this specific usage
 	 */
-	
+
 	protected class ModBooleanOption extends BooleanOption {
 
 		public ModBooleanOption(String name, BooleanValue setting) {

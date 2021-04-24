@@ -16,7 +16,6 @@ import net.minecraftforge.client.event.InputEvent.RawMouseEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-
 @SuppressWarnings("resource")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ZoomEvent {
@@ -46,28 +45,31 @@ public class ZoomEvent {
 	 */
 	static boolean queuedSmoothCamera;
 
+	/*
+	 * Called every render tick
+	 */
 	@SubscribeEvent
 	public static void renderEvent(final EntityViewRenderEvent event) {
-		
+
 		/*
 		 * Resets the all values when a GUI is opened, removing the mouse button
 		 * untoggle problems
 		 */
 		if (Minecraft.getInstance().currentScreen != null) {
+
 			GAMESETTINGS.smoothCamera = queuedSmoothCamera;
 			isToggled = false;
 			toggleTimer = 0;
 			fovModifier = 0;
-		}
 
-		/*
-		 * Called every render tick
-		 */
+		} else if (!SmoothFocus.KEY_BIND_ZOOM.isKeyDown() && !isToggled) {
 
-		if (!SmoothFocus.KEY_BIND_ZOOM.isKeyDown() && !isToggled) {
 			inactiveTick();
+
 		} else {
+
 			activeTick();
+
 		}
 
 	}
@@ -170,14 +172,18 @@ public class ZoomEvent {
 
 			if (action == GLFW.GLFW_PRESS) {
 
-				if (toggleTimer == 0) {
-					toggleTimer = 7;
-					singleTap();
-				} else {
-					toggleTimer = 0;
-					doubleTap();
+				if (!MODSETTINGS.disableToggle.get()) {
+					if (toggleTimer == 0) {
+						toggleTimer = 7;
+						singleTap();
+					} else {
+						toggleTimer = 0;
+						doubleTap();
+					}
 				}
-				
+				if (MODSETTINGS.startAtMaxZoom.get() && !isToggled) {
+					fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
+				}
 
 			} else if (action == GLFW.GLFW_RELEASE && !isToggled) {
 

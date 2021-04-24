@@ -32,6 +32,8 @@ public class SmoothFocusSettings {
 	public BooleanValue doubleClickOn;
 	public BooleanValue doubleClickOff;
 	public BooleanValue scrollWhenToggled;
+	public BooleanValue startAtMaxZoom;
+	public BooleanValue disableToggle;
 	public IntValue scrollZoomSpeed;
 	public IntValue maxZoom;
 
@@ -55,10 +57,12 @@ public class SmoothFocusSettings {
 		doubleClickOn = builder.translation("smoothfocus.config.toggle_double_click").define("toggleDoubleClick", true);
 		doubleClickOff = builder.translation("smoothfocus.config.untoggle_double_click").define("untoggleDoubleClick", false);
 		scrollWhenToggled = builder.translation("smoothfocus.config.scroll_when_toggled").define("scrollWhenToggled", false);
+		startAtMaxZoom = builder.translation("smoothfocus.config.start_at_max_zoom").define("sartAtMaxZoom", false);
+		disableToggle = builder.translation("smoothfocus.config.disable_toggle").define("disableToggle", false);
 
-		scrollZoomSpeed = builder.translation("smoothfocus.config.smooth_on_toggle").defineInRange("scrollZoomSpeed", 8, 1, 10);
+		scrollZoomSpeed = builder.translation("smoothfocus.config.scroll_zoom_speed").defineInRange("scrollZoomSpeed", 8, 1, 10);
 		
-		maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 75, 0, 100);
+		maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 90, 0, 100);
 
 	}
 

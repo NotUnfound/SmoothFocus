@@ -7,6 +7,8 @@
 "smoothfocus.config.double_click_on":"Tap twice to take out ye spyglass",
 "smoothfocus.config.double_click_off":"Tap twice to put away ye spyglass",
 "smoothfocus.config.scroll_when_toggled":"Change spyglass while usin' it",
+"smoothfocus.config.start_at_max_zoom": "Have a quick hand while usin' yer spyglass",
+"smoothfocus.config.disable_toggle": "Put away yer spyglass faster",
 "smoothfocus.config.scroll_speed":"Ship speed",
-"smoothfocus.config.max_zoom":"Closeness of ye target"
+"smoothfocus.config.max_zoom":"Distance of ye target"
 }

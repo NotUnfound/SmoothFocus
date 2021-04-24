@@ -7,6 +7,8 @@
 "smoothfocus.config.double_click_on":"Clicketh twice to zoometh in",
 "smoothfocus.config.double_click_off":"Clicketh twice to zoometh out",
 "smoothfocus.config.scroll_when_toggled":"Zoometh around whilst thou hast toggled",
+"smoothfocus.config.start_at_max_zoom": "Zoometh in as soon as thy start zooming",
+"smoothfocus.config.disable_toggle": "Disableth thy toggle",
 "smoothfocus.config.scroll_speed":"Zoometh scroll speed",
 "smoothfocus.config.max_zoom":"Greatest value of thine zoom"
 }
