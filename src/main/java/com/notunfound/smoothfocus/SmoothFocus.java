@@ -17,6 +17,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class SmoothFocus {
 
 	public static final String MODID = "smoothfocus";
+	public static boolean SMOOTH_CAMERA = false;
 	public static KeyBinding KEY_BIND_ZOOM;
 	
 

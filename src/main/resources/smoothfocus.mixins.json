@@ -1,0 +1,10 @@
+{
+	"required": true,
+	"package": "com.notunfound.smoothfocus.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"refmap": "smoothfocus.refmap.json",
+	"mixins": [
+		"MouseHelperMixin"
+	],
+	"minVersion": "0.8"
+}

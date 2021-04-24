@@ -1,11 +1,13 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
         jcenter()
         mavenCentral()
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7-SNAPSHOT'
     }
 }
 
@@ -15,14 +17,22 @@ apply plugin: 'net.minecraftforge.gradle'
 
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
 
-version = '1.3.0'
+mixin {
+    add sourceSets.main, "smoothfocus.refmap.json"
+}
+
+version = '1.4.0'
 group = 'com.notunfound.smoothfocus'
 archivesBaseName = 'smoothfocus'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+
+
 minecraft {
 
     mappings channel: 'snapshot', version: '20210309-1.16.5'
@@ -31,19 +41,21 @@ minecraft {
          
 
     runs {
+    
         client {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
-            property 'forge.logging.console.level', 'debug'
+   			arg "-mixin.config=smoothfocus.mixins.json"
 
             mods {
-                examplemod {
+                smoothfocus {
                     source sourceSets.main
                 }
             }
         }
+        
 
         server {
             workingDirectory project.file('run')
@@ -96,7 +108,9 @@ jar {
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"notunfound",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            "MixinConfigs": "smoothfocus.mixins.json"
+            
         ])
     }
 }

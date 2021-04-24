@@ -5,7 +5,6 @@ import org.lwjgl.glfw.GLFW;
 import com.notunfound.smoothfocus.SmoothFocus;
 import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
-import net.minecraft.client.GameSettings;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
@@ -25,8 +24,6 @@ public class ZoomEvent {
 	 * 
 	 * This class changes the fov, reads the settings, and handles the toggle
 	 */
-
-	private static final GameSettings GAMESETTINGS = Minecraft.getInstance().gameSettings;
 
 	private static final SmoothFocusSettings MODSETTINGS = SmoothFocusSettings.INSTANCE;
 
@@ -56,16 +53,16 @@ public class ZoomEvent {
 		 * untoggle problems
 		 */
 		if (Minecraft.getInstance().currentScreen != null) {
-
-			GAMESETTINGS.smoothCamera = queuedSmoothCamera;
+			
+			SmoothFocus.SMOOTH_CAMERA = false;
 			isToggled = false;
 			toggleTimer = 0;
 			fovModifier = 0;
 
 		} else if (!SmoothFocus.KEY_BIND_ZOOM.isKeyDown() && !isToggled) {
 
-			inactiveTick();
-
+			fovModifier = 0;
+			
 		} else {
 
 			activeTick();
@@ -87,27 +84,16 @@ public class ZoomEvent {
 
 		if (isToggled && MODSETTINGS.smoothOnToggle.get()) {
 
-			GAMESETTINGS.smoothCamera = true;
+			SmoothFocus.SMOOTH_CAMERA = true;
 
 		} else if (!isToggled && fovModifier < 0 && MODSETTINGS.smoothOnScroll.get()) {
 
-			GAMESETTINGS.smoothCamera = true;
+			SmoothFocus.SMOOTH_CAMERA = true;
 
 		}
 
 	}
 
-	private static void inactiveTick() {
-
-		fovModifier = 0;
-
-		/*
-		 * prepare the queued boolean for the next time the zoom is activated
-		 */
-
-		queuedSmoothCamera = GAMESETTINGS.smoothCamera;
-
-	}
 
 	@SubscribeEvent
 	public static void changeFOV(final FOVUpdateEvent event) {
@@ -191,7 +177,7 @@ public class ZoomEvent {
 				 * restores original smoothness
 				 */
 
-				GAMESETTINGS.smoothCamera = queuedSmoothCamera;
+				SmoothFocus.SMOOTH_CAMERA = false;
 
 			}
 
