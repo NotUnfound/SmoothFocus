@@ -7,12 +7,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.notunfound.smoothfocus.SmoothFocus;
+import com.notunfound.smoothfocus.client.screen.ConfigEnums.MouseSensitivityModifier;
+import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHelper;
 import net.minecraft.client.util.MouseSmoother;
 import net.minecraft.client.util.NativeUtil;
 
+/*
+ * Woooo, mixins!
+ */
 @Mixin(MouseHelper.class)
 public class MouseHelperMixin {
 
@@ -39,11 +44,21 @@ public class MouseHelperMixin {
 		double d1 = d0 - this.lastLookTime;
 		this.lastLookTime = d0;
 		if (this.isMouseGrabbed() && this.minecraft.isGameFocused()) {
+
+			/*
+			 * Change the velocities before calculating player look
+			 */
+
+			if (!SmoothFocusSettings.INSTANCE.mouseSensitivityModType.get().equals(MouseSensitivityModifier.NONE)) {
+				xVelocity /= SmoothFocus.sensitvityModifier * 2 + 1;
+				yVelocity /= SmoothFocus.sensitvityModifier * 2 + 1;
+			}
+
 			double d4 = this.minecraft.gameSettings.mouseSensitivity * (double) 0.6F + (double) 0.2F;
 			double d5 = d4 * d4 * d4 * 8.0D;
 			double d2;
 			double d3;
-			if (this.minecraft.gameSettings.smoothCamera || SmoothFocus.SMOOTH_CAMERA) {
+			if (this.minecraft.gameSettings.smoothCamera || SmoothFocus.smoothCamera) {
 				double d6 = this.xSmoother.smooth(this.xVelocity * d5, d1 * d5);
 				double d7 = this.ySmoother.smooth(this.yVelocity * d5, d1 * d5);
 				d2 = d6;
@@ -71,6 +86,9 @@ public class MouseHelperMixin {
 			this.xVelocity = 0.0D;
 			this.yVelocity = 0.0D;
 		}
+		/*
+		 * So that it doesn't happen twice
+		 */
 		callback.cancel();
 	}
 

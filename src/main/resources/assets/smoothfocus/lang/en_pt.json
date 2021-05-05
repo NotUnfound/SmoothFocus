@@ -1,14 +1,38 @@
 {
-"key.zoom_in": "Don ye spyglass",
-"key.categories.smoothfocus": "SmoothFocus",
-"smoothfocus.config_gui.title":"SmoothFocus",
-"smoothfocus.config.smooth_on_toggle":"Keep a steady hand while up close",
-"smoothfocus.config.smooth_on_scroll":"Keep a steady hand while rollin' around",
-"smoothfocus.config.double_click_on":"Tap twice to take out ye spyglass",
-"smoothfocus.config.double_click_off":"Tap twice to put away ye spyglass",
-"smoothfocus.config.scroll_when_toggled":"Change spyglass while usin' it",
-"smoothfocus.config.start_at_max_zoom": "Have a quick hand while usin' yer spyglass",
-"smoothfocus.config.disable_toggle": "Put away yer spyglass faster",
-"smoothfocus.config.scroll_speed":"Ship speed",
-"smoothfocus.config.max_zoom":"Distance of ye target"
+	"key.zoom_in": "Don ye spyglass",
+	"key.smoothfocus_configure": "Open Scribble Journal",
+	"key.categories.smoothfocus": "SmoothFocus",
+	"smoothfocus.config.title":"SmoothFocus",
+
+	"smoothfocus.config.smooth_type": "Smooth Ye Glass",
+	"smoothfocus.config.smooth_type.toggle": "Logic",
+	"smoothfocus.config.smooth_type.scroll": "Rollin'",
+	"smoothfocus.config.smooth_type.none": "Nay",		
+	"smoothfocus.config.smooth_type.both": "On Logic n' Rollin'",
+	
+	
+	"smoothfocus.config.toggle_type": "Commands ye Logic",
+	
+	"smoothfocus.config.toggle_type.disable": "Nay",
+	"smoothfocus.config.toggle_type.double_tap_on": "Hit Twice On",
+	"smoothfocus.config.toggle_type.double_tap_off": "Hit Twice Off",
+	"smoothfocus.config.toggle_type.double_tap_on_off": "Hit Twice On n' Off",
+	"smoothfocus.config.toggle_type.tap_on_off": "Hit On n' Off",
+	
+	
+	"smoothfocus.config.mouse_sensitivity": "Yer Sea Legs",	
+	"smoothfocus.config.mouse_sensitivity.set": "Steady",
+	"smoothfocus.config.mouse_sensitivity.scaled": "Perhaps",
+	"smoothfocus.config.mouse_sensitivity.none": "Nay",
+	"smoothfocus.config.mouse_sensitivity.set.tooltip": "Reduce ye mouse sensitivity by the value chosen in ye mouse sensitivity reduction slider",
+	"smoothfocus.config.mouse_sensitivity.scaled.tooltip": "Change ye mouse sensitivity depending on how much ye zoomed. Ye mouse sensitivity reduction slider shows how much to reduce at maximum zoom",
+	"smoothfocus.config.mouse_sensitivity.none.tooltip": "Do not change ye mouse sensitivity while zooming.",
+	
+	"smoothfocus.config.mouse_sensitivity_reduction": "Peg Leg Length",
+	"smoothfocus.config.scroll_when_toggled": "Swivel Spyglass",
+	"smoothfocus.config.start_at_max_zoom": "Up Close at First",
+	
+	"smoothfocus.config.scroll_speed": "Ship Speed",
+	"smoothfocus.config.max_zoom": "Spyglass Length"
+	
 }

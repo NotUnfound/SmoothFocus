@@ -8,9 +8,11 @@ import org.apache.commons.lang3.tuple.Pair;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import com.notunfound.smoothfocus.SmoothFocus;
+import com.notunfound.smoothfocus.client.screen.ConfigEnums;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.EnumValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 public class SmoothFocusSettings {
@@ -27,15 +29,19 @@ public class SmoothFocusSettings {
 	 */
 	private static final Path CONFIG_PATH = Paths.get("config", SmoothFocus.MODID + ".toml");
 
-	public BooleanValue smoothOnToggle;	
-	public BooleanValue smoothOnScroll;
-	public BooleanValue doubleClickOn;
-	public BooleanValue doubleClickOff;
+	public EnumValue<ConfigEnums.SmoothType> smoothType;
+	public EnumValue<ConfigEnums.ToggleType> toggleType;
+	public EnumValue<ConfigEnums.MouseSensitivityModifier> mouseSensitivityModType;
+
 	public BooleanValue scrollWhenToggled;
 	public BooleanValue startAtMaxZoom;
 	public BooleanValue disableToggle;
+	
+	public IntValue mouseSensitivityReduction;
 	public IntValue scrollZoomSpeed;
 	public IntValue maxZoom;
+	
+
 
 	static {
 
@@ -51,16 +57,20 @@ public class SmoothFocusSettings {
 	}
 
 	private SmoothFocusSettings(ForgeConfigSpec.Builder builder) {
-
-		smoothOnToggle = builder.translation("smoothfocus.config.smooth_on_toggle").define("smoothOnToggle", true);
-		smoothOnScroll = builder.translation("smoothfocus.config.smooth_on_scroll").define("smoothOnScroll", true);
-		doubleClickOn = builder.translation("smoothfocus.config.toggle_double_click").define("toggleDoubleClick", true);
-		doubleClickOff = builder.translation("smoothfocus.config.untoggle_double_click").define("untoggleDoubleClick", false);
+		
+		smoothType = builder.translation("smoothfocus.config.smooth_type").defineEnum("smoothType", ConfigEnums.SmoothType.BOTH);
+		
+		toggleType = builder.translation("smoothfocus.config.smooth_type").defineEnum("toggleType", ConfigEnums.ToggleType.DOUBLE_TAP_ON);
+		
+		mouseSensitivityModType = builder.translation("smoothfocus.config.mouse_sensitivity").defineEnum("mouseSensitivityMod", ConfigEnums.MouseSensitivityModifier.NONE);
+		
 		scrollWhenToggled = builder.translation("smoothfocus.config.scroll_when_toggled").define("scrollWhenToggled", false);
+		
 		startAtMaxZoom = builder.translation("smoothfocus.config.start_at_max_zoom").define("sartAtMaxZoom", false);
-		disableToggle = builder.translation("smoothfocus.config.disable_toggle").define("disableToggle", false);
-
-		scrollZoomSpeed = builder.translation("smoothfocus.config.scroll_zoom_speed").defineInRange("scrollZoomSpeed", 8, 1, 10);
+				
+		mouseSensitivityReduction = builder.translation("smoothfocus.config.mouse_sensitivity_reduction").defineInRange("mouseSensitvityReduction", 5, 0, 10);
+		
+		scrollZoomSpeed = builder.translation("smoothfocus.config.scroll_zoom_speed").defineInRange("scrollZoomSpeed", 12, 1, 20);
 		
 		maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 90, 0, 100);
 

@@ -1,14 +1,39 @@
 {
-"key.zoom_in": "LOOKZ REAL CLOSE",
-"key.categories.smoothfocus": "SmoothFocus",
-"smoothfocus.config_gui.title":"SmoothFocus",
-"smoothfocus.config.smooth_on_toggle":"toggle WIGGLZ",
-"smoothfocus.config.smooth_on_scroll":"zoom scroll WIGGLZ",
-"smoothfocus.config.double_click_on":"Tapz twice turn on",
-"smoothfocus.config.double_click_off":"Tapz twice turn off",
-"smoothfocus.config.scroll_when_toggled":"MOUSE WHEEL WHEN TOGGL",
-"smoothfocus.config.start_at_max_zoom": "Big stuf at the beghinin",
-"smoothfocus.config.disable_toggle": "No mor stiky zooms",
-"smoothfocus.config.scroll_speed":"wheel go FASTTT!!1! (or not ;-;)",
-"smoothfocus.config.max_zoom":"B i g g e s t zoom"
+	"key.zoom_in": "LOOKZ REAL CLOSE",
+	"key.smoothfocus_configure": "Configz Tim",
+	
+	"key.categories.smoothfocus": "SmoothFocus",
+	"smoothfocus.config.title":"SmoothFocus",
+
+	"smoothfocus.config.smooth_type": "What kindz of smooth",
+	"smoothfocus.config.smooth_type.toggle": "Only Sticky",
+	"smoothfocus.config.smooth_type.scroll": "Only ehh maybe",
+	"smoothfocus.config.smooth_type.none": "Nevah",		
+	"smoothfocus.config.smooth_type.both": "MUCH YES",
+	
+	"smoothfocus.config.toggle_type": "How To Togglz",
+	
+	"smoothfocus.config.toggle_type.disable": "Nup",
+	"smoothfocus.config.toggle_type.double_tap_on": "Two timz on",
+	"smoothfocus.config.toggle_type.double_tap_off": "Two timz off",
+	"smoothfocus.config.toggle_type.double_tap_on_off": "Alwayz two timz",
+	"smoothfocus.config.toggle_type.tap_on_off": "ONE TIM OWNLEE",
+	
+	
+	"smoothfocus.config.mouse_sensitivity": "OHNOICANTLOOKATSTUFFFAST",	
+	"smoothfocus.config.mouse_sensitivity.set": "Much yes",
+	"smoothfocus.config.mouse_sensitivity.scaled": "Depends",
+	"smoothfocus.config.mouse_sensitivity.none": "Nup",
+	"smoothfocus.config.mouse_sensitivity.set.tooltip": "Reduce the mouse sensitivitee by the value chosen in the mouse sensitivitee reduction slider",
+	"smoothfocus.config.mouse_sensitivity.scaled.tooltip": "Change the mouse sensitivitee depending on how much you are zoomed. The mouse sensitivitee reduction slider shows how much to reduce at maximum zoom",
+	"smoothfocus.config.mouse_sensitivity.none.tooltip": "Dunt change the mouse sensitivitee while zooming.",
+	
+	"smoothfocus.config.mouse_sensitivity_reduction": "HoW MuCh SlOw",
+	
+	"smoothfocus.config.scroll_when_toggled": "WAAHHHH togglz (or not ;-;)",
+	"smoothfocus.config.start_at_max_zoom": "BIGGZT STUF",
+
+
+	"smoothfocus.config.scroll_speed":"wheel go FASTTT!1!",
+	"smoothfocus.config.max_zoom":"B i g g e s t zoom"
 }
