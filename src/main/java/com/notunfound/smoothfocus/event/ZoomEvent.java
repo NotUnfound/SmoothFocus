@@ -195,7 +195,7 @@ public class ZoomEvent {
 				}
 				if (MODSETTINGS.startAtMaxZoom.get() && !isToggled) {
 
-					fovModifier = -(MODSETTINGS.maxZoom.get() / 100D) + 0.08;
+					maxFov();
 
 				}
 
@@ -211,6 +211,13 @@ public class ZoomEvent {
 
 		}
 	}
+	
+	/*
+	 * Sets the fov modifier to the maximum allowed value
+	 */
+	private static void maxFov() {
+		fovModifier = -Math.log(MODSETTINGS.maxZoom.get() + 1.41) / 4.3 + 0.08;
+	}
 
 	/*
 	 * Called when the key is tapped once, not counting the tap at the beginning of
@@ -222,7 +229,7 @@ public class ZoomEvent {
 		if (!MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
 			isToggled = true;
-			fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
+			maxFov();
 
 		} else if (!MODSETTINGS.toggleType.get().turnOff() && isToggled) {
 
@@ -239,7 +246,7 @@ public class ZoomEvent {
 		if (MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
 			isToggled = true;
-			fovModifier = -(MODSETTINGS.maxZoom.get()) / 100D + 0.08;
+			maxFov();
 
 		} else if (MODSETTINGS.toggleType.get().turnOff() && isToggled) {
 
