@@ -50,8 +50,8 @@ public class MouseHelperMixin {
 			 */
 
 			if (!SmoothFocusSettings.INSTANCE.mouseSensitivityModType.get().equals(MouseSensitivityModifier.NONE)) {
-				xVelocity /= SmoothFocus.sensitvityModifier * 2 + 1;
-				yVelocity /= SmoothFocus.sensitvityModifier * 2 + 1;
+				xVelocity /= SmoothFocus.sensitvityModifier * 4 + 1;
+				yVelocity /= SmoothFocus.sensitvityModifier * 4 + 1;
 			}
 
 			double d4 = this.minecraft.gameSettings.mouseSensitivity * (double) 0.6F + (double) 0.2F;

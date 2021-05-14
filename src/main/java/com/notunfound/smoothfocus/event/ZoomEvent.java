@@ -86,8 +86,8 @@ public class ZoomEvent {
 
 		if (MODSETTINGS.mouseSensitivityModType.get().equals(MouseSensitivityModifier.SCALED)) {
 
-			SmoothFocus.sensitvityModifier = MathHelper.lerp((-fovModifier / MODSETTINGS.maxZoom.get() * 100), 0,
-					MODSETTINGS.mouseSensitivityReduction.get());
+			SmoothFocus.sensitvityModifier = MathHelper.lerp((fovModifier / -(MODSETTINGS.maxZoom.get()) * 100),
+					0, MODSETTINGS.mouseSensitivityReduction.get());
 
 		} else {
 
@@ -111,13 +111,21 @@ public class ZoomEvent {
 	}
 
 	@SubscribeEvent
-	public static void changeFOV(final FOVUpdateEvent event) {
+	public static void changeSmoothFOV(final FOVUpdateEvent event) {
 
 		timer = (int) Math.max(0, timer - 1f);
-		
-        event.setNewfov(MathHelper.lerp(Minecraft.getInstance().gameSettings.fovScaleEffect, 1.0F, event.getFov()));
+
+		event.setNewfov(MathHelper.lerp(Minecraft.getInstance().gameSettings.fovScaleEffect, 1.0F, event.getFov()));
 
 		event.setNewfov((float) (event.getNewfov() + fovModifier));
+
+	}
+
+	@SubscribeEvent
+	public static void changeFOV(final EntityViewRenderEvent.FOVModifier event) {
+
+		event.setFOV(event.getFOV() + fovModifier * 8.5);
+
 	}
 
 	/*
@@ -136,7 +144,7 @@ public class ZoomEvent {
 			 */
 			fovModifier = MathHelper.clamp(
 					fovModifier - (event.getScrollDelta() / (40 - (MODSETTINGS.scrollZoomSpeed.get() * 2))),
-					-MODSETTINGS.maxZoom.get() / 100D, 0D);
+					-MODSETTINGS.maxZoom.get() / 100D + 0.08, 0D);
 
 			/*
 			 * Make the hotbar not scroll while zooming in
@@ -187,7 +195,7 @@ public class ZoomEvent {
 				}
 				if (MODSETTINGS.startAtMaxZoom.get() && !isToggled) {
 
-					fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
+					fovModifier = -(MODSETTINGS.maxZoom.get() / 100D) + 0.08;
 
 				}
 
@@ -212,7 +220,7 @@ public class ZoomEvent {
 	private static void singleTap() {
 
 		if (!MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
-			
+
 			isToggled = true;
 			fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
 
@@ -231,7 +239,7 @@ public class ZoomEvent {
 		if (MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
 			isToggled = true;
-			fovModifier = -(MODSETTINGS.maxZoom.get() / 100D);
+			fovModifier = -(MODSETTINGS.maxZoom.get()) / 100D + 0.08;
 
 		} else if (MODSETTINGS.toggleType.get().turnOff() && isToggled) {
 
