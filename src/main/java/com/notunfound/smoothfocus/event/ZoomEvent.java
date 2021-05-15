@@ -144,7 +144,7 @@ public class ZoomEvent {
 			 */
 			fovModifier = MathHelper.clamp(
 					fovModifier - (event.getScrollDelta() / (40 - (MODSETTINGS.scrollZoomSpeed.get() * 2))),
-					-MODSETTINGS.maxZoom.get() / 100D + 0.08, 0D);
+					-Math.log(MODSETTINGS.maxZoom.get() + 1.41) / 4.3 + 0.08, 0D);
 
 			/*
 			 * Make the hotbar not scroll while zooming in
