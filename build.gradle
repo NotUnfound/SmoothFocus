@@ -23,7 +23,7 @@ mixin {
     add sourceSets.main, "smoothfocus.refmap.json"
 }
 
-version = '1.6.0'
+version = '1.6.1'
 group = 'com.notunfound.smoothfocus'
 archivesBaseName = 'smoothfocus'
 

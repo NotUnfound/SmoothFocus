@@ -86,8 +86,8 @@ public class ZoomEvent {
 
 		if (MODSETTINGS.mouseSensitivityModType.get().equals(MouseSensitivityModifier.SCALED)) {
 
-			SmoothFocus.sensitvityModifier = MathHelper.lerp((fovModifier / -(MODSETTINGS.maxZoom.get()) * 100),
-					0, MODSETTINGS.mouseSensitivityReduction.get());
+			SmoothFocus.sensitvityModifier = MathHelper.lerp((fovModifier / -(MODSETTINGS.maxZoom.get()) * 100), 0,
+					MODSETTINGS.mouseSensitivityReduction.get());
 
 		} else {
 
@@ -110,17 +110,28 @@ public class ZoomEvent {
 
 	}
 
+	
+	/*
+	 * Supplies the smooth zooming effect
+	 */
 	@SubscribeEvent
 	public static void changeSmoothFOV(final FOVUpdateEvent event) {
 
 		timer = (int) Math.max(0, timer - 1f);
+		
+		/*
+		 * Act as if the fov effects slider was disabled when zooming to keep zoom consistent
+		 */
+		float fovEffects = fovModifier == 0 ? Minecraft.getInstance().gameSettings.fovScaleEffect : 0.0f;
 
-		event.setNewfov(MathHelper.lerp(Minecraft.getInstance().gameSettings.fovScaleEffect, 1.0F, event.getFov()));
+		event.setNewfov(MathHelper.lerp(fovEffects, 1.0F, event.getFov()));
 
-		event.setNewfov((float) (event.getNewfov() + fovModifier));
-
+		event.setNewfov((float) ((event.getNewfov() + fovModifier) + 0.08));
 	}
 
+	/*
+	 * Allows the zoom to increase a lot
+	 */
 	@SubscribeEvent
 	public static void changeFOV(final EntityViewRenderEvent.FOVModifier event) {
 
@@ -143,8 +154,8 @@ public class ZoomEvent {
 			 * Sets the modifier
 			 */
 			fovModifier = MathHelper.clamp(
-					fovModifier - (event.getScrollDelta() / (40 - (MODSETTINGS.scrollZoomSpeed.get() * 2))),
-					-Math.log(MODSETTINGS.maxZoom.get() + 1.41) / 4.3 + 0.08, 0D);
+					fovModifier - (event.getScrollDelta() / (40 - (MODSETTINGS.scrollZoomSpeed.get() * 2))), maxFov(),
+					0D);
 
 			/*
 			 * Make the hotbar not scroll while zooming in
@@ -195,7 +206,7 @@ public class ZoomEvent {
 				}
 				if (MODSETTINGS.startAtMaxZoom.get() && !isToggled) {
 
-					maxFov();
+					fovModifier = maxFov();
 
 				}
 
@@ -211,12 +222,12 @@ public class ZoomEvent {
 
 		}
 	}
-	
+
 	/*
 	 * Sets the fov modifier to the maximum allowed value
 	 */
-	private static void maxFov() {
-		fovModifier = -Math.log(MODSETTINGS.maxZoom.get() + 1.41) / 4.3 + 0.08;
+	private static double maxFov() {
+		return -Math.log(MODSETTINGS.maxZoom.get() + 1.41) / 4.3 + 0.08;
 	}
 
 	/*
@@ -229,7 +240,7 @@ public class ZoomEvent {
 		if (!MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
 			isToggled = true;
-			maxFov();
+			fovModifier = maxFov();
 
 		} else if (!MODSETTINGS.toggleType.get().turnOff() && isToggled) {
 
@@ -246,7 +257,7 @@ public class ZoomEvent {
 		if (MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
 			isToggled = true;
-			maxFov();
+			fovModifier = maxFov();
 
 		} else if (MODSETTINGS.toggleType.get().turnOff() && isToggled) {
 
