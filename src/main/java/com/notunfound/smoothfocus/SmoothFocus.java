@@ -1,5 +1,6 @@
 package com.notunfound.smoothfocus;
 
+import org.apache.commons.lang3.tuple.Pair;
 import org.lwjgl.glfw.GLFW;
 
 import com.notunfound.smoothfocus.client.screen.ConfigScreen;
@@ -35,6 +36,12 @@ public class SmoothFocus {
 		 */
 		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY,
 				() -> (x, y) -> new ConfigScreen(y, x.gameSettings));
+
+		/*
+		 * Establish that it is client-side only
+		 */
+		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST,
+				() -> Pair.of(() -> "secret text", (version, networkBoolean) -> networkBoolean));
 
 		/*
 		 * Register for modloading

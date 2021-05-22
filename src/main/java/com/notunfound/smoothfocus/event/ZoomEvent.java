@@ -49,15 +49,15 @@ public class ZoomEvent {
 	@SubscribeEvent
 	public static void renderEvent(final EntityViewRenderEvent event) {
 
-		if (SmoothFocus.keyBindConfigure.isPressed() && Minecraft.getInstance().isGameFocused()) {
-			Minecraft.getInstance().displayGuiScreen(new ConfigScreen(Minecraft.getInstance().currentScreen, null));
+		if (SmoothFocus.keyBindConfigure.isPressed() && Minecraft.getInstance().currentScreen == null) {
+			Minecraft.getInstance().displayGuiScreen(new ConfigScreen(null, null));
 		}
 
 		/*
 		 * Resets the all values when the menu is opened, removing the mouse button
 		 * untoggle problems
 		 */
-		if (Minecraft.getInstance().isGamePaused()) {
+		if (Minecraft.getInstance().currentScreen != null) {
 
 			SmoothFocus.smoothCamera = false;
 			isToggled = false;
@@ -110,7 +110,6 @@ public class ZoomEvent {
 
 	}
 
-	
 	/*
 	 * Supplies the smooth zooming effect
 	 */
@@ -118,9 +117,10 @@ public class ZoomEvent {
 	public static void changeSmoothFOV(final FOVUpdateEvent event) {
 
 		timer = (int) Math.max(0, timer - 1f);
-		
+
 		/*
-		 * Act as if the fov effects slider was disabled when zooming to keep zoom consistent
+		 * Act as if the fov effects slider was disabled when zooming to keep zoom
+		 * consistent
 		 */
 		float fovEffects = fovModifier == 0 ? Minecraft.getInstance().gameSettings.fovScaleEffect : 0.0f;
 
