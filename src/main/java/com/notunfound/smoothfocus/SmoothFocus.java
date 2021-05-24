@@ -58,7 +58,7 @@ public class SmoothFocus {
 				"key.categories.smoothfocus");
 
 		/*
-		 * Regiter the keybinds so that they can be configured in the controls
+		 * Register the keybinds so that they can be configured in the controls
 		 */
 		ClientRegistry.registerKeyBinding(keyBindZoom);
 		ClientRegistry.registerKeyBinding(keyBindConfigure);
