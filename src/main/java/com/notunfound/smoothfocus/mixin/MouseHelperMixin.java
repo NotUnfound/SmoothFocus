@@ -14,10 +14,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.MouseHelper;
 import net.minecraft.client.util.MouseSmoother;
 import net.minecraft.client.util.NativeUtil;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
 /*
  * Woooo, mixins!
  */
+@OnlyIn(Dist.CLIENT)
 @Mixin(MouseHelper.class)
 public class MouseHelperMixin {
 

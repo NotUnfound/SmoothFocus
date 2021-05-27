@@ -1,5 +1,9 @@
 package com.notunfound.smoothfocus.client.screen;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+@OnlyIn(Dist.CLIENT)
 @SuppressWarnings("unchecked")
 public class ConfigEnums {
 

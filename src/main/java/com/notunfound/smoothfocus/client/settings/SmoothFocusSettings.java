@@ -10,11 +10,15 @@ import com.electronwill.nightconfig.core.io.WritingMode;
 import com.notunfound.smoothfocus.SmoothFocus;
 import com.notunfound.smoothfocus.client.screen.ConfigEnums;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.EnumValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
+
+@OnlyIn(Dist.CLIENT)
 public class SmoothFocusSettings {
 
 	public static final ForgeConfigSpec SPEC;

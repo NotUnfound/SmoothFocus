@@ -10,6 +10,8 @@ import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.FOVUpdateEvent;
 import net.minecraftforge.client.event.InputEvent.KeyInputEvent;
@@ -23,6 +25,8 @@ import net.minecraftforge.fml.common.Mod;
  *
  * This class changes the fov, reads the settings, and handles the toggle
  */
+
+@OnlyIn(Dist.CLIENT)
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ZoomEvent {
 
