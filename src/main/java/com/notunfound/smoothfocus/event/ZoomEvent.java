@@ -124,6 +124,7 @@ public class ZoomEvent {
 		if (fovModifier == 0 && game.currentScreen == null)
 			game.updateWindowSize();
 		
+		
 		/*
 		 * Act as if the fov effects slider was disabled when zooming to keep zoom
 		 * consistent
