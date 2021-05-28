@@ -49,6 +49,7 @@ public class SmoothFocus {
 		MinecraftForge.EVENT_BUS.register(this);
 
 	}
+	
 
 	private void registerOptions(final FMLClientSetupEvent event) {
 
