@@ -2,7 +2,7 @@ package com.notunfound.smoothfocus.event;
 
 import org.lwjgl.glfw.GLFW;
 
-import com.notunfound.smoothfocus.SmoothFocus;
+import com.notunfound.smoothfocus.SmoothFocusClient;
 import com.notunfound.smoothfocus.client.screen.ConfigEnums.MouseSensitivityModifier;
 import com.notunfound.smoothfocus.client.screen.ConfigEnums.ToggleType;
 import com.notunfound.smoothfocus.client.screen.ConfigScreen;
@@ -50,7 +50,7 @@ public class ZoomEvent {
 	@SubscribeEvent
 	public static void renderEvent(final EntityViewRenderEvent event) {
 
-		if (SmoothFocus.keyBindConfigure.isPressed() && Minecraft.getInstance().currentScreen == null) {
+		if (SmoothFocusClient.keyBindConfigure.isPressed() && Minecraft.getInstance().currentScreen == null) {
 			Minecraft.getInstance().displayGuiScreen(new ConfigScreen(null, null));
 		}
 
@@ -60,16 +60,16 @@ public class ZoomEvent {
 		 */
 		if (Minecraft.getInstance().currentScreen != null) {
 
-			SmoothFocus.smoothCamera = false;
+			SmoothFocusClient.smoothCamera = false;
 			isToggled = false;
 			timer = 0;
 			fovModifier = 0;
-			SmoothFocus.sensitvityModifier = 0;
+			SmoothFocusClient.sensitvityModifier = 0;
 
-		} else if (!SmoothFocus.keyBindZoom.isKeyDown() && !isToggled) {
+		} else if (!SmoothFocusClient.keyBindZoom.isKeyDown() && !isToggled) {
 
 			fovModifier = 0;
-			SmoothFocus.sensitvityModifier = 0;
+			SmoothFocusClient.sensitvityModifier = 0;
 
 		} else {
 
@@ -87,12 +87,12 @@ public class ZoomEvent {
 
 		if (MODSETTINGS.mouseSensitivityModType.get().equals(MouseSensitivityModifier.SCALED)) {
 
-			SmoothFocus.sensitvityModifier = MathHelper.lerp((fovModifier / -(MODSETTINGS.maxZoom.get()) * 100), 0,
+			SmoothFocusClient.sensitvityModifier = MathHelper.lerp((fovModifier / -(MODSETTINGS.maxZoom.get()) * 100), 0,
 					MODSETTINGS.mouseSensitivityReduction.get());
 
 		} else {
 
-			SmoothFocus.sensitvityModifier = MODSETTINGS.mouseSensitivityReduction.get();
+			SmoothFocusClient.sensitvityModifier = MODSETTINGS.mouseSensitivityReduction.get();
 
 		}
 
@@ -101,11 +101,11 @@ public class ZoomEvent {
 		 */
 		if (isToggled && MODSETTINGS.smoothType.get().toggle()) {
 
-			SmoothFocus.smoothCamera = true;
+			SmoothFocusClient.smoothCamera = true;
 
 		} else if (!isToggled && fovModifier < 0 && MODSETTINGS.smoothType.get().scroll()) {
 
-			SmoothFocus.smoothCamera = true;
+			SmoothFocusClient.smoothCamera = true;
 
 		}
 
@@ -122,9 +122,9 @@ public class ZoomEvent {
 		Minecraft game = Minecraft.getInstance();
 
 		if (fovModifier == 0 && game.currentScreen == null)
-			game.updateWindowSize();
-		
-		
+			game.worldRenderer.setDisplayListEntitiesDirty();
+				
+
 		/*
 		 * Act as if the fov effects slider was disabled when zooming to keep zoom
 		 * consistent
@@ -143,7 +143,13 @@ public class ZoomEvent {
 	public static void changeFOV(final EntityViewRenderEvent.FOVModifier event) {
 
 		event.setFOV(event.getFOV() + fovModifier * 8.5);
-
+		
+		/*
+		 * For debug, may implement as a feature later on
+		 */
+		
+//		Minecraft.getInstance().player.sendStatusMessage(new StringTextComponent("FovMod = " + fovModifier + " SkipRenderWorld = " + Minecraft.getInstance().skipRenderWorld), true);
+		
 	}
 
 	/*
@@ -155,7 +161,7 @@ public class ZoomEvent {
 		boolean flag = MODSETTINGS.scrollWhenToggled.get() ? true : !isToggled;
 		boolean flag1 = MODSETTINGS.scrollWhenToggled.get() && isToggled;
 
-		if ((SmoothFocus.keyBindZoom.isKeyDown() || flag1) && flag) {
+		if ((SmoothFocusClient.keyBindZoom.isKeyDown() || flag1) && flag) {
 
 			/*
 			 * Sets the modifier
@@ -196,7 +202,7 @@ public class ZoomEvent {
 	 */
 	private static void zoomInput(int button, int action) {
 
-		if (button == SmoothFocus.keyBindZoom.getKey().getKeyCode()) {
+		if (button == SmoothFocusClient.keyBindZoom.getKey().getKeyCode()) {
 
 			if (action == GLFW.GLFW_PRESS) {
 
@@ -223,7 +229,7 @@ public class ZoomEvent {
 				 * restores original smoothness
 				 */
 
-				SmoothFocus.smoothCamera = false;
+				SmoothFocusClient.smoothCamera = false;
 
 			}
 

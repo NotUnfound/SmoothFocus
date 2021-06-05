@@ -49,7 +49,7 @@ public class ConfigScreen extends SettingsScreen {
 	private ModSliderOption mouseSensitvityReductionOption = new ModSliderOption(
 			"smoothfocus.config.mouse_sensitivity_reduction", 0, 10, 1.0f, SETTINGS.mouseSensitivityReduction);
 
-	private ModSliderOption maxZoomOption = new ModSliderOption("smoothfocus.config.max_zoom", 0, 100, 1.0f,
+	private ModSliderOption maxZoomOption = new ModSliderOption("smoothfocus.config.max_zoom", 1, 100, 1.0f,
 			SETTINGS.maxZoom);
 
 	private ModSliderOption scrollSpeedOption = new ModSliderOption("smoothfocus.config.scroll_speed", 1, 20, 1.0f,

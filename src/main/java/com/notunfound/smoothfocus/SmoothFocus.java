@@ -1,41 +1,22 @@
 package com.notunfound.smoothfocus;
 
 import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.glfw.GLFW;
 
-import com.notunfound.smoothfocus.client.screen.ConfigScreen;
-
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.client.util.InputMappings;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod(SmoothFocus.MODID)
 public class SmoothFocus {
 
 	public static final String MODID = "smoothfocus";
-	public static boolean smoothCamera = false;
-	public static KeyBinding keyBindZoom;
-	public static KeyBinding keyBindConfigure;
-	public static double sensitvityModifier = 1;
 
 	public SmoothFocus() {
 
-		/*
-		 * Set up the event listeners
-		 */
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerOptions);
-
-		/*
-		 * Make the config screen available from the mod's config button
-		 */
-		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY,
-				() -> (x, y) -> new ConfigScreen(y, x.gameSettings));
+		DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> SmoothFocusClient::new);
 
 		/*
 		 * Establish that it is client-side only
@@ -43,26 +24,12 @@ public class SmoothFocus {
 		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST,
 				() -> Pair.of(() -> "secret text", (version, networkBoolean) -> networkBoolean));
 
-		/*
-		 * Register for modloading
-		 */
 		MinecraftForge.EVENT_BUS.register(this);
 
 	}
-	
 
-	private void registerOptions(final FMLClientSetupEvent event) {
+	/*
+	 * So wow, much empty
+	 */
 
-		keyBindZoom = new KeyBinding("key.zoom_in", GLFW.GLFW_KEY_J, "key.categories.smoothfocus");
-
-		keyBindConfigure = new KeyBinding("key.smoothfocus_configure", InputMappings.INPUT_INVALID.getKeyCode(),
-				"key.categories.smoothfocus");
-
-		/*
-		 * Register the keybinds so that they can be configured in the controls
-		 */
-		ClientRegistry.registerKeyBinding(keyBindZoom);
-		ClientRegistry.registerKeyBinding(keyBindConfigure);
-
-	}
 }

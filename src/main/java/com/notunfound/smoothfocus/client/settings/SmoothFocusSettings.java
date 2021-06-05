@@ -73,7 +73,7 @@ public class SmoothFocusSettings {
 		
 		scrollZoomSpeed = builder.translation("smoothfocus.config.scroll_zoom_speed").defineInRange("scrollZoomSpeed", 12, 1, 20);
 		
-		maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 50, 0, 100);
+		maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 50, 1, 100);
 
 	}
 

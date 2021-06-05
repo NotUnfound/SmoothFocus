@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.notunfound.smoothfocus.SmoothFocus;
+import com.notunfound.smoothfocus.SmoothFocusClient;
 import com.notunfound.smoothfocus.client.screen.ConfigEnums.MouseSensitivityModifier;
 import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
@@ -50,15 +50,15 @@ public class MouseHelperMixin {
 			 */
 
 			if (!SmoothFocusSettings.INSTANCE.mouseSensitivityModType.get().equals(MouseSensitivityModifier.NONE)) {
-				xVelocity /= SmoothFocus.sensitvityModifier * 4 + 1;
-				yVelocity /= SmoothFocus.sensitvityModifier * 4 + 1;
+				xVelocity /= SmoothFocusClient.sensitvityModifier * 4 + 1;
+				yVelocity /= SmoothFocusClient.sensitvityModifier * 4 + 1;
 			}
 
 			double d4 = this.minecraft.gameSettings.mouseSensitivity * (double) 0.6F + (double) 0.2F;
 			double d5 = d4 * d4 * d4 * 8.0D;
 			double d2;
 			double d3;
-			if (this.minecraft.gameSettings.smoothCamera || SmoothFocus.smoothCamera) {
+			if (this.minecraft.gameSettings.smoothCamera || SmoothFocusClient.smoothCamera) {
 				double d6 = this.xSmoother.smooth(this.xVelocity * d5, d1 * d5);
 				double d7 = this.ySmoother.smooth(this.yVelocity * d5, d1 * d5);
 				d2 = d6;
