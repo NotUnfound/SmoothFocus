@@ -4,7 +4,7 @@ import org.lwjgl.glfw.GLFW;
 
 import com.notunfound.smoothfocus.client.screen.ConfigScreen;
 
-import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.client.KeyMapping;
 import net.minecraft.client.util.InputMappings;
 import net.minecraftforge.fml.ExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -15,8 +15,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class SmoothFocusClient {
 
 	public static boolean smoothCamera = false;
-	public static KeyBinding keyBindZoom;
-	public static KeyBinding keyBindConfigure;
+	public static KeyMapping keyBindZoom;
+	public static KeyMapping keyBindConfigure;
 	public static double sensitvityModifier = 1;
 
 	public SmoothFocusClient() {

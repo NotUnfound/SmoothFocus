@@ -6,20 +6,20 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.notunfound.smoothfocus.client.screen.ConfigEnums.IModConfigEnum;
 import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
-import net.minecraft.client.AbstractOption;
-import net.minecraft.client.GameSettings;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.Option;
+import net.minecraft.client.Options;
 import net.minecraft.client.gui.DialogTexts;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.SettingsScreen;
-import net.minecraft.client.gui.widget.button.Button;
-import net.minecraft.client.gui.widget.list.OptionsRowList;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.OptionsList;
+import net.minecraft.client.gui.screens.OptionsSubScreen;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.settings.BooleanOption;
 import net.minecraft.client.settings.IteratableOption;
 import net.minecraft.client.settings.SliderPercentageOption;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.IReorderingProcessor;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
@@ -27,7 +27,7 @@ import net.minecraftforge.common.ForgeConfigSpec.EnumValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 @OnlyIn(Dist.CLIENT)
-public class ConfigScreen extends SettingsScreen {
+public class ConfigScreen extends OptionsSubScreen {
 
 	private static final SmoothFocusSettings SETTINGS = SmoothFocusSettings.INSTANCE;
 
@@ -55,28 +55,28 @@ public class ConfigScreen extends SettingsScreen {
 	private ModSliderOption scrollSpeedOption = new ModSliderOption("smoothfocus.config.scroll_speed", 1, 20, 1.0f,
 			SETTINGS.scrollZoomSpeed);
 
-	private OptionsRowList options;
+	private OptionsList options;
 
 	private Screen parentScreen;
 
-	public ConfigScreen(Screen parent, GameSettings settings) {
-		super(parent, settings, new TranslationTextComponent("smoothfocus.config.title"));
+	public ConfigScreen(Screen parent, Options settings) {
+		super(parent, settings, new TranslatableComponent("smoothfocus.config.title"));
 	}
 
 	@Override
 	protected void init() {
 
-		options = new OptionsRowList(minecraft, width, height, 24, height - 32, 25);
+		options = new OptionsList(minecraft, width, height, 24, height - 32, 25);
 
-		AbstractOption[] optionList = new AbstractOption[] { smoothTypeOption, toggleTypeOption,
+		Option[] optionList = new Option[] { smoothTypeOption, toggleTypeOption,
 				mouseSensitivityTypeOption, mouseSensitvityReductionOption, startAtMaxZoomOption,
 				scrollWhenToggledOption };
-		AbstractOption[] smallOptionList = new AbstractOption[] { scrollSpeedOption, maxZoomOption };
+		Option[] smallOptionList = new Option[] { scrollSpeedOption, maxZoomOption };
 
 		/*
 		 * This is so that the buttons will be wide, one per row
 		 */
-		for (AbstractOption o : optionList) {
+		for (Option o : optionList) {
 			options.addOption(o);
 		}
 
@@ -100,7 +100,7 @@ public class ConfigScreen extends SettingsScreen {
 
 		drawCenteredString(matrixStack, this.font, this.title, width / 2, 8, 0xFFFFFF);
 
-		List<IReorderingProcessor> list = func_243293_a(options, mouseX, mouseY);
+		List<IReorderingProcessor> list = func_243293_a(owptions, mouseX, mouseY);
 		if (list != null) {
 			this.renderTooltip(matrixStack, list, mouseX, mouseY);
 		}

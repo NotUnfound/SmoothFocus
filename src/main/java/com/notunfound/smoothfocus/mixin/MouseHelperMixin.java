@@ -11,14 +11,14 @@ import com.notunfound.smoothfocus.client.screen.ConfigEnums.MouseSensitivityModi
 import com.notunfound.smoothfocus.client.settings.SmoothFocusSettings;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.MouseHelper;
-import net.minecraft.client.util.MouseSmoother;
-import net.minecraft.client.util.NativeUtil;
+import net.minecraft.client.MouseHandler;
+import net.minecraft.util.SmoothDouble;
+import com.mojang.blaze3d.Blaze3D;
 
 /*
  * Woooo, mixins!
  */
-@Mixin(MouseHelper.class)
+@Mixin(MouseHandler.class)
 public class MouseHelperMixin {
 
 	@Shadow
@@ -30,8 +30,8 @@ public class MouseHelperMixin {
 	@Shadow
 	private double yVelocity;
 
-	private final MouseSmoother xSmoother = new MouseSmoother();
-	private final MouseSmoother ySmoother = new MouseSmoother();
+	private final SmoothDouble xSmoother = new SmoothDouble();
+	private final SmoothDouble ySmoother = new SmoothDouble();
 
 	@Shadow
 	private boolean isMouseGrabbed() {
@@ -40,7 +40,7 @@ public class MouseHelperMixin {
 
 	@Inject(at = @At("HEAD"), method = "updatePlayerLook", cancellable = true)
 	private void updatePlayerLook(CallbackInfo callback) {
-		double d0 = NativeUtil.getTime();
+		double d0 = Blaze3D.getTime();
 		double d1 = d0 - this.lastLookTime;
 		this.lastLookTime = d0;
 		if (this.isMouseGrabbed() && this.minecraft.isGameFocused()) {
