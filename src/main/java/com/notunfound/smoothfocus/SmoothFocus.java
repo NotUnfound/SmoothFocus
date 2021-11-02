@@ -6,6 +6,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 
@@ -21,7 +22,7 @@ public class SmoothFocus {
 		/*
 		 * Establish that it is client-side only
 		 */
-		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST,
+		ModLoadingContext.get().registerExtensionPoint(Ex,
 				() -> Pair.of(() -> "secret text", (version, networkBoolean) -> networkBoolean));
 
 		MinecraftForge.EVENT_BUS.register(this);

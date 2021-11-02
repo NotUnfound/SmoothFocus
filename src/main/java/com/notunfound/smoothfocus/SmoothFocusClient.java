@@ -7,6 +7,7 @@ import com.notunfound.smoothfocus.client.screen.ConfigScreen;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.util.InputMappings;
 import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -29,7 +30,7 @@ public class SmoothFocusClient {
 		/*
 		 * Make the config screen available from the mod's config button
 		 */
-		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY,
+		ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class,
 				() -> (x, y) -> new ConfigScreen(y, x.gameSettings));
 
 	}
