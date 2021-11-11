@@ -3,56 +3,58 @@ package com.notunfound.smoothfocus.client.screen;
 @SuppressWarnings("unchecked")
 public class ConfigEnums {
 
-	public interface IModConfigEnum {
+    public interface IModConfigEnum {
 
-		<T extends IModConfigEnum> T next();
+        <T extends IModConfigEnum> T next();
 
-	}
+    }
 
-	public enum MouseSensitivityModifier implements IModConfigEnum {
+    public enum MouseSensitivityModifier implements IModConfigEnum {
 
-		NONE, SCALED, SET;
+        NONE, SCALED, SET;
 
-		public <T extends IModConfigEnum> T next() {
+        public <T extends IModConfigEnum> T next() {
 
-			return (T) values()[(ordinal() + 1) % 3];
-		}
+            return (T) values()[(ordinal() + 1) % 3];
+        }
 
-	}
 
-	public enum SmoothType implements IModConfigEnum {
+    }
 
-		NONE, SCROLL, TOGGLE, BOTH;
+    public enum SmoothType implements IModConfigEnum {
 
-		public boolean scroll() {
-			return equals(SCROLL) || equals(BOTH);
-		}
+        NONE, SCROLL, TOGGLE, BOTH;
 
-		public boolean toggle() {
-			return equals(TOGGLE) || equals(BOTH);
-		}
+        public boolean scroll() {
+            return equals(SCROLL) || equals(BOTH);
+        }
 
-		public <T extends IModConfigEnum> T next() {
-			return (T) values()[(ordinal() + 1) % 4];
-		}
+        public boolean toggle() {
+            return equals(TOGGLE) || equals(BOTH);
+        }
 
-	}
+        public <T extends IModConfigEnum> T next() {
+            return (T) values()[(ordinal() + 1) % 4];
+        }
 
-	public enum ToggleType implements IModConfigEnum {
+    }
 
-		DOUBLE_TAP_ON, DOUBLE_TAP_OFF, DOUBLE_TAP_ON_OFF, TAP_ON_OFF, DISABLE;
+    public enum ToggleType implements IModConfigEnum {
 
-		public boolean turnOn() {
-			return equals(DOUBLE_TAP_ON_OFF) || equals(DOUBLE_TAP_ON);
-		}
+        DOUBLE_TAP_ON, DOUBLE_TAP_OFF, DOUBLE_TAP_ON_OFF, TAP_ON_OFF, DISABLE;
 
-		public boolean turnOff() {
-			return equals(DOUBLE_TAP_ON_OFF) || equals(DOUBLE_TAP_OFF);
-		}
-		@Override
-		public <T extends IModConfigEnum> T next() {
-			return (T) values()[(ordinal() + 1) % 5];
-		}
+        public boolean turnOn() {
+            return equals(DOUBLE_TAP_ON_OFF) || equals(DOUBLE_TAP_ON);
+        }
 
-	}
+        public boolean turnOff() {
+            return equals(DOUBLE_TAP_ON_OFF) || equals(DOUBLE_TAP_OFF);
+        }
+
+        @Override
+        public <T extends IModConfigEnum> T next() {
+            return (T) values()[(ordinal() + 1) % 5];
+        }
+
+    }
 }
