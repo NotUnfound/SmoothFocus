@@ -29,13 +29,14 @@ public class ConfigScreen extends OptionsSubScreen {
     private static final SmoothFocusSettings SETTINGS = SmoothFocusSettings.INSTANCE;
 
     private CycleOption<?> smoothTypeOption = createIterableOption(false, "smoothfocus.config.smooth_type",
-            SETTINGS.smoothType, null);
+            SETTINGS.smoothType, ConfigEnums.SmoothType.values());
 
     private CycleOption<?> toggleTypeOption = createIterableOption(false, "smoothfocus.config.toggle_type",
-            SETTINGS.toggleType, null);
+            SETTINGS.toggleType, ConfigEnums.ToggleType.values());
 
     private CycleOption<?> mouseSensitivityTypeOption = createIterableOption(true,
-            "smoothfocus.config.mouse_sensitivity", SETTINGS.mouseSensitivityModType, null);
+            "smoothfocus.config.mouse_sensitivity", SETTINGS.mouseSensitivityModType,
+            ConfigEnums.MouseSensitivityModifier.values());
 
     private CycleOption<Boolean> scrollWhenToggledOption = createBooleanOption("smoothfocus.config.scroll_when_toggled",
             SETTINGS.scrollWhenToggled);

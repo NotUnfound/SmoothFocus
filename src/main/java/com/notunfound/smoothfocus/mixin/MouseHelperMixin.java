@@ -4,6 +4,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.mojang.blaze3d.Blaze3D;
 
@@ -35,7 +36,7 @@ public class MouseHelperMixin {
     }
 
     @Inject(at = @At("HEAD"), method = "turnPlayer", cancellable = true)
-    public void turnPlayer() {
+    public void turnPlayer(CallbackInfo callback) {
         double d0 = Blaze3D.getTime();
         double d1 = d0 - this.lastMouseEventTime;
         this.lastMouseEventTime = d0;
@@ -78,6 +79,11 @@ public class MouseHelperMixin {
             this.accumulatedDX = 0.0D;
             this.accumulatedDY = 0.0D;
         }
+
+        /*
+         * So that it doesn't happen twice
+         */
+        callback.cancel();
     }
 
 //	private void updatePlayerLook(CallbackInfo callback) {

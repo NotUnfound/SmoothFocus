@@ -1,15 +1,13 @@
 {
 	"required": true,
-	"minVersion": "0.8",
 	"package": "com.notunfound.smoothfocus.mixin",
 	"compatibilityLevel": "JAVA_16",
 	"refmap": "smoothfocus.refmap.json",
-	"client": [
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
 	"mixins": [
 		"MouseHelperMixin"
-	]
+	],
+	"minVersion": "0.8",
+	"injectors": {
+		"defaultRequire": 1
+	}
 }
