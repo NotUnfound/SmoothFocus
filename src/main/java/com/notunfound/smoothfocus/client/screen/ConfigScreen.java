@@ -161,27 +161,28 @@ public class ConfigScreen extends OptionsSubScreen {
          * Enum = smoothfocus.config.<option name>.<enum value>
          */
 
-        return CycleOption.create(translationKeyIn, options, (x) -> {
+        CycleOption<IModConfigEnum> option = CycleOption.create(translationKeyIn, options, (x) -> {
 
-            String valueKey = translationKeyIn + "." + value.get().name().toLowerCase();
-
-            if (tooltip)
-                return createValuedKey(valueKey, translationKeyIn);
-
-            return new TranslatableComponent(translationKeyIn);
+            return new TranslatableComponent(translationKeyIn + "." + x.toString().toLowerCase());
 
         }, (x) -> {
             return value.get();
         }, (x, y, z) -> {
-
             value.set(value.get().next());
-
         });
+
+        return tooltip ? option.setTooltip((x) -> {
+            return (y) -> {
+                return x.font.split(new TranslatableComponent(
+                        translationKeyIn + "." + value.get().name().toLowerCase() + ".tooltip"), 200);
+            };
+        }) : option;
 
     }
 
     protected static TranslatableComponent createValuedKey(String value, String name) {
-        return new TranslatableComponent("options.generic_value" + name + value);
+        return new TranslatableComponent("options.generic_value", new TranslatableComponent(name),
+                new TranslatableComponent(value));
     }
 
 }

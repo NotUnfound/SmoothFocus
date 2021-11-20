@@ -26,6 +26,7 @@ public class SmoothFocusClient {
          */
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::registerOptions);
 
+
         /*
          * Make the config screen available from the mod's config button
          */
@@ -35,6 +36,9 @@ public class SmoothFocusClient {
 
         ModLoadingContext.get().registerExtensionPoint(ConfigGuiHandler.ConfigGuiFactory.class,
                 () -> new ConfigGuiHandler.ConfigGuiFactory((mc, screen) -> new ConfigScreen(screen, null)));
+        
+        
+        
 
     }
 

@@ -21,10 +21,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 /*
- * Where all the magic happens
- *
- * This class changes the fov, reads the settings, and handles the toggle
+ * Changes the fov, reads the settings, handles the toggle
  */
+
 @SuppressWarnings("resource")
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ZoomEvent {
@@ -256,6 +255,8 @@ public class ZoomEvent {
      */
 
     private static void singleTap() {
+        
+        System.out.println("single tap");
 
         if (!MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
@@ -273,6 +274,8 @@ public class ZoomEvent {
      * Called when the key is tapped twice within 7 ticks
      */
     private static void doubleTap() {
+        
+        System.out.println("double tap");
 
         if (MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 

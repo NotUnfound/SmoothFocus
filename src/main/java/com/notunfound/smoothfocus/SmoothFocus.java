@@ -15,7 +15,8 @@ public class SmoothFocus {
     public SmoothFocus() {
 
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> SmoothFocusClient::new);
-
+        
+        
         /*
          * Establish that it is client-side only
          */
@@ -26,6 +27,8 @@ public class SmoothFocus {
         ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class,
                 () -> new IExtensionPoint.DisplayTest(() -> "secret text",
                         (version, networkBoolean) -> networkBoolean));
+        
+        
 
         MinecraftForge.EVENT_BUS.register(this);
 

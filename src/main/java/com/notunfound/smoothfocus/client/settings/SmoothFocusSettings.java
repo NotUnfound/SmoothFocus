@@ -15,70 +15,75 @@ import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 import net.minecraftforge.common.ForgeConfigSpec.EnumValue;
 import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
-
 public class SmoothFocusSettings {
 
-	public static final ForgeConfigSpec SPEC;
-	
-	/*
-	 * Singleton of the settings
-	 */
-	public static final SmoothFocusSettings INSTANCE;
-	
-	/*
-	 * Where the savedata will actually be stored
-	 */
-	private static final Path CONFIG_PATH = Paths.get("config", SmoothFocus.MODID + ".toml");
+    public static final ForgeConfigSpec SPEC;
 
-	public EnumValue<ConfigEnums.SmoothType> smoothType;
-	public EnumValue<ConfigEnums.ToggleType> toggleType;
-	public EnumValue<ConfigEnums.MouseSensitivityModifier> mouseSensitivityModType;
+    /*
+     * Singleton of the settings
+     */
+    public static final SmoothFocusSettings INSTANCE;
 
-	public BooleanValue scrollWhenToggled;
-	public BooleanValue startAtMaxZoom;
-	public BooleanValue disableToggle;
-	
-	public IntValue mouseSensitivityReduction;
-	public IntValue scrollZoomSpeed;
-	public IntValue maxZoom;
-	
+    /*
+     * Where the save data will actually be stored
+     */
+    private static final Path CONFIG_PATH = Paths.get("config", SmoothFocus.MODID + ".toml");
 
+    public EnumValue<ConfigEnums.SmoothType> smoothType;
+    public EnumValue<ConfigEnums.ToggleType> toggleType;
+    public EnumValue<ConfigEnums.MouseSensitivityModifier> mouseSensitivityModType;
 
-	static {
+    public BooleanValue scrollWhenToggled;
+    public BooleanValue startAtMaxZoom;
+    public BooleanValue disableToggle;
 
-		Pair<SmoothFocusSettings, ForgeConfigSpec> pair = new ForgeConfigSpec.Builder()
-				.configure(SmoothFocusSettings::new);
-		INSTANCE = pair.getLeft();
-		SPEC = pair.getRight();
-		CommentedFileConfig config = CommentedFileConfig.builder(CONFIG_PATH).sync().autoreload()
-				.writingMode(WritingMode.REPLACE).build();
-		config.load();
-		config.save();
-		SPEC.setConfig(config);
-	}
+    public IntValue mouseSensitivityReduction;
+    public IntValue scrollZoomSpeed;
+    public IntValue maxZoom;
 
-	private SmoothFocusSettings(ForgeConfigSpec.Builder builder) {
-		
-		smoothType = builder.translation("smoothfocus.config.smooth_type").defineEnum("smoothType", ConfigEnums.SmoothType.BOTH);
-		
-		toggleType = builder.translation("smoothfocus.config.smooth_type").defineEnum("toggleType", ConfigEnums.ToggleType.DOUBLE_TAP_ON);
-		
-		mouseSensitivityModType = builder.translation("smoothfocus.config.mouse_sensitivity").defineEnum("mouseSensitivityMod", ConfigEnums.MouseSensitivityModifier.NONE);
-		
-		scrollWhenToggled = builder.translation("smoothfocus.config.scroll_when_toggled").define("scrollWhenToggled", false);
-		
-		startAtMaxZoom = builder.translation("smoothfocus.config.start_at_max_zoom").define("sartAtMaxZoom", false);
-				
-		mouseSensitivityReduction = builder.translation("smoothfocus.config.mouse_sensitivity_reduction").defineInRange("mouseSensitvityReduction", 5, 0, 10);
-		
-		scrollZoomSpeed = builder.translation("smoothfocus.config.scroll_zoom_speed").defineInRange("scrollZoomSpeed", 12, 1, 20);
-		
-		maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 50, 1, 100);
+    static {
+        
+        System.out.println("loading config");
 
-	}
+        Pair<SmoothFocusSettings, ForgeConfigSpec> pair = new ForgeConfigSpec.Builder()
+                .configure(SmoothFocusSettings::new);
+        INSTANCE = pair.getLeft();
+        SPEC = pair.getRight();
+        CommentedFileConfig config = CommentedFileConfig.builder(CONFIG_PATH).sync().autoreload()
+                .writingMode(WritingMode.REPLACE).build();
+        config.load();
+        config.save();
+        SPEC.setConfig(config);
+    }
 
-	public void save() {
-		SPEC.save();
-	}
+    private SmoothFocusSettings(ForgeConfigSpec.Builder builder) {
+
+        smoothType = builder.translation("smoothfocus.config.smooth_type").defineEnum("smoothType",
+                ConfigEnums.SmoothType.BOTH);
+
+        toggleType = builder.translation("smoothfocus.config.smooth_type").defineEnum("toggleType",
+                ConfigEnums.ToggleType.DOUBLE_TAP_ON);
+
+        mouseSensitivityModType = builder.translation("smoothfocus.config.mouse_sensitivity")
+                .defineEnum("mouseSensitivityMod", ConfigEnums.MouseSensitivityModifier.NONE);
+
+        scrollWhenToggled = builder.translation("smoothfocus.config.scroll_when_toggled").define("scrollWhenToggled",
+                false);
+
+        startAtMaxZoom = builder.translation("smoothfocus.config.start_at_max_zoom").define("sartAtMaxZoom", false);
+
+        mouseSensitivityReduction = builder.translation("smoothfocus.config.mouse_sensitivity_reduction")
+                .defineInRange("mouseSensitvityReduction", 5, 0, 10);
+
+        scrollZoomSpeed = builder.translation("smoothfocus.config.scroll_zoom_speed").defineInRange("scrollZoomSpeed",
+                12, 1, 20);
+
+        maxZoom = builder.translation("smoothfocus.config.max_zoom").defineInRange("maxZoom", 50, 1, 100);
+
+    }
+
+    public void save() {
+        SPEC.save();
+    }
 
 }
