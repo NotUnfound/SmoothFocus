@@ -1,7 +1,5 @@
 package com.notunfound.smoothfocus.event;
 
-import java.util.OptionalInt;
-
 import org.lwjgl.glfw.GLFW;
 
 import com.notunfound.smoothfocus.SmoothFocusClient;
@@ -50,7 +48,7 @@ public class ZoomEvent {
      */
     @SubscribeEvent
     public static void renderEvent(final EntityViewRenderEvent event) {
-        
+
         // open the config
         if (SmoothFocusClient.keyBindConfigure.consumeClick() && Minecraft.getInstance().screen == null) {
             Minecraft.getInstance().setScreen(new ConfigScreen(null, null));
@@ -204,11 +202,9 @@ public class ZoomEvent {
      */
     private static void zoomInput(int button, int action) {
 
-        OptionalInt keyCode = SmoothFocusClient.keyBindZoom.getKey().getNumericKeyValue();
+        int keyCode = SmoothFocusClient.keyBindZoom.getKey().getValue();
 
-        if (keyCode.isEmpty()) {
-            return;
-        } else if (button == keyCode.getAsInt()) {
+        if (button == keyCode) {
 
             if (action == GLFW.GLFW_PRESS) {
 
@@ -255,7 +251,7 @@ public class ZoomEvent {
      */
 
     private static void singleTap() {
-        
+
         System.out.println("single tap");
 
         if (!MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
@@ -274,8 +270,6 @@ public class ZoomEvent {
      * Called when the key is tapped twice within 7 ticks
      */
     private static void doubleTap() {
-        
-        System.out.println("double tap");
 
         if (MODSETTINGS.toggleType.get().turnOn() && !isToggled) {
 
